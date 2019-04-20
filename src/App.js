@@ -5,27 +5,62 @@ import FormContext from './FormContext.js';
 
 class App extends Component {
 	state = {
+		'name' : 'Genci',
+		'phone' : '',
+		'email' : '',
+		'date' : '',
+		'from' : {
+			'city' : '',
+			'country' : '',
+			'street' : '',
+			'size' : '',
+			'floor' : '',
+			'lift' : ''
+		},
+		'to' : {
+			'street' : '',
+			'city' : '',
+			'country' : '',
+			'floor' : '',
+			'lift' : ''
+		},
+		'vehicle' : '',
+		'packing_service' : false,
+		'heavy_products' : false,
+		'appointment' : false,
+		'packing_materials' : [],
+		'comment' : '',
+		'files' : ''
+	}
 
+	onClickHandler = () => {
+		console.log(this.state);
+	}
+
+	updateContext = (name, val) => {
+		this.setState((prev, props) => {
+			if(prev[name] !== val) {
+				return {[name]: val};
+			}
+		});
 	}
 
   render() {
-		this.context.name = 'dsdssfdsfsd';
     return (
-      <div className="App">
-				<FormContext.Provider>
+			<FormContext.Provider value={{updateContext: this.updateContext}}>
+      	<div className="App">
 	        <h2>Make an order online for the selected services.</h2>
 
 					<HeaderSection title="Basic Details" />
 
-					<Input value="1" type="checkbox" name="name" label={this.context.name} />
-				</FormContext.Provider>
-      </div>
+					<Input value={this.state.name} type="text" name="name" label="Name" />
+
+					<Input value={this.state.packing_service} type="checkbox" name="packing_service" label="Packing?" />
+					<button onClick={this.onClickHandler}>Show Context</button>
+      	</div>
+			</FormContext.Provider>
     );
   }
 }
-
-
-
-App.contextType = FormContext;
 
 export default App;

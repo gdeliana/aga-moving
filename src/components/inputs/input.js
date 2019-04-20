@@ -1,26 +1,31 @@
 import React, { Component } from 'react';
-import CheckBox from './checkbox.js';
+import CheckBox from './CheckBox.js';
+import TextInput from './TextInput.js';
+import FormContext from './../../FormContext.js';
 
 class Input extends Component {
-	state = {
-		value : this.props.value,
-		type: this.props.type,
-		label: this.props.label,
-		name: this.props.name,
-	}
-
-	changeHandler = (event) => {
-		this.setState({value:event.target.value});
+	updateContext = (val) => {
+		console.log(this.props);
+		this.context.updateContext(this.props.name, val);
 	}
 
 	render () {
-		if(this.state.type === 'checkbox'){
+		if (this.props.type === 'checkbox'){
 			return (
 				<CheckBox
-					name={this.state.name}
-					label={this.state.label}
-					onChange={this.changeHandler}
-					value={this.state.value}
+					name={this.props.name}
+					label={this.props.label}
+					value={this.props.value}
+					updateContext={this.updateContext}
+				/>
+			);
+		} else if (this.props.type === 'text') {
+			return (
+				<TextInput
+					name={this.props.name}
+					label={this.props.label}
+					value={this.props.value}
+					updateContext={this.updateContext}
 				/>
 			);
 		}else{
@@ -28,5 +33,7 @@ class Input extends Component {
 		}
 	}
 }
+
+Input.contextType = FormContext;
 
 export default Input;
