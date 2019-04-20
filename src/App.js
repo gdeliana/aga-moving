@@ -1,37 +1,10 @@
 import React, { Component } from 'react';
-import HeaderSection from './components/section.js';
-import Input from './components/inputs/input.js';
+import HeaderSection from './components/HeaderSection.js';
+import Input from './components/inputs/Input.js';
 import FormContext from './FormContext.js';
 
 class App extends Component {
-	state = {
-		'name' : 'Genci',
-		'phone' : '',
-		'email' : '',
-		'date' : '',
-		'from' : {
-			'city' : '',
-			'country' : '',
-			'street' : '',
-			'size' : '',
-			'floor' : '',
-			'lift' : ''
-		},
-		'to' : {
-			'street' : '',
-			'city' : '',
-			'country' : '',
-			'floor' : '',
-			'lift' : ''
-		},
-		'vehicle' : '',
-		'packing_service' : false,
-		'heavy_products' : false,
-		'appointment' : false,
-		'packing_materials' : [],
-		'comment' : '',
-		'files' : ''
-	}
+	state = FormContext.defaultState;
 
 	onClickHandler = () => {
 		console.log(this.state);
@@ -39,7 +12,7 @@ class App extends Component {
 
 	updateContext = (name, val) => {
 		this.setState((prev, props) => {
-			if(prev[name] !== val) {
+			if(prev[name] === undefined || prev[name] !== val) {
 				return {[name]: val};
 			}
 		});
@@ -56,6 +29,15 @@ class App extends Component {
 					<Input value={this.state.name} type="text" name="name" label="Name" />
 
 					<Input value={this.state.packing_service} type="checkbox" name="packing_service" label="Packing?" />
+
+					<Input value={this.state.to.floor} type="select" name="to_floor" label="floor"
+						options={[
+							{text: 'sdsds', value : 'dsdsds'},
+							{text: 'sdsds', value : 'dsdsds'},
+							{text: 'sdsds', value : 'dsdsds'}
+						]}
+					/>
+
 					<button onClick={this.onClickHandler}>Show Context</button>
       	</div>
 			</FormContext.Provider>

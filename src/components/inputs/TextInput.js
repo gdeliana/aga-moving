@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import InputLabel from './label.js';
 
 export default class TextInput extends Component {
 	onInput = (event) => {
@@ -7,13 +6,8 @@ export default class TextInput extends Component {
 	}
 
 	render () {
-		const id = this.props.name + "_textInput";
-
 		return (
-			<div className="inputElement">
-				<InputLabel for={id} label={this.props.label} />
-				<input id={id} type="text" name={this.props.name} value={this.props.value} onChange={this.onInput} />
-			</div>
+			<input id={this.props.id} type="text" name={this.props.name} value={this.props.value} onChange={this.onInput} />
 		);
 	}
 }
