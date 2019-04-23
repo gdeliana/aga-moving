@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+
 import CheckBox from './CheckBox.js';
 import TextInput from './TextInput.js';
+import SelectInput from './SelectInput.js';
+
 import InputLabel from './InputLabel.js';
 import FormContext from './../../FormContext.js';
-import SelectInput from './SelectInput.js';
+
 
 class Input extends Component {
 	updateContext = (val) => {
@@ -28,15 +31,15 @@ class Input extends Component {
 			updateContext:this.updateContext,
 			id:id
 		};
-		const ElementName = this.Components[this.props.type];
 		if(this.props.type === 'select'){
 			const options = (this.props.options) ? this.props.options : {};
 			params['options'] = options;
 		}
+		const InputComponent = this.Components[this.props.type];
 		return (
 			<div className="inputElement">
 				<InputLabel for={id} label={this.props.label} />
-				<ElementName {...params} />
+				<InputComponent {...params} />
 			</div>
 		);
 	}
