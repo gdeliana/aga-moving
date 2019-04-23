@@ -17,7 +17,7 @@ class Input extends Component {
 	}
 
 	render () {
-		if(!this.props.type){
+		if(!this.props.type || !this.Components[this.props.type]){
 			return (<div></div>);
 		}
 		const id = this.props.name + "_"+this.props.type+"Input";
