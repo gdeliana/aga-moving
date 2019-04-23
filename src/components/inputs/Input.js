@@ -10,42 +10,33 @@ class Input extends Component {
 		this.context.updateContext(this.props.name, val);
 	}
 
-	render () {
-		const id = this.props.name + "_"+this.props.type+"Input";
-		if (this.props.type === 'checkbox'){
-			const Element =	(<CheckBox
-					name={this.props.name}
-					label={this.props.label}
-					value={this.props.value}
-					updateContext={this.updateContext}
-					id={id}
-				/>)
-		} else if (this.props.type === 'text') {
-			const Element =	(<TextInput
-					name={this.props.name}
-					label={this.props.label}
-					value={this.props.value}
-					updateContext={this.updateContext}
-					id={id}
-				/>)
-		} else if (this.props.type === 'select') {
-			const options = (this.props.options) ? this.props.options : {};
-			const Element = (<SelectInput
-					name={this.props.name}
-					label={this.props.label}
-					value={this.props.value}
-					updateContext={this.updateContext}
-					options={options}
-					id={id}
-				/>)
-		}else{
-			const Element = (<div></div>);
-		}
+	Components = {
+		checkbox : CheckBox,
+		select : SelectInput,
+		text : TextInput
+	}
 
+	render () {
+		if(!this.props.type){
+			return (<div></div>);
+		}
+		const id = this.props.name + "_"+this.props.type+"Input";
+		const params = {
+			name:this.props.name,
+			label:this.props.label,
+			value:this.props.value,
+			updateContext:this.updateContext,
+			id:id
+		};
+		const ElementName = this.Components[this.props.type];
+		if(this.props.type === 'select'){
+			const options = (this.props.options) ? this.props.options : {};
+			params['options'] = options;
+		}
 		return (
 			<div className="inputElement">
 				<InputLabel for={id} label={this.props.label} />
-				<Element />
+				<ElementName {...params} />
 			</div>
 		);
 	}
