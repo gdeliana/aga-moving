@@ -1,46 +1,27 @@
 import React, { Component } from 'react';
-import HeaderSection from './components/HeaderSection.js';
-import Input from './components/inputs/Input.js';
-import FormContext from './FormContext.js';
+import TextInput from './components/inputs/TextInput';
+import CheckBox from './components/inputs/CheckBox';
+import SelectInput from './components/inputs/SelectInput';
+import store from './stores/mainStore';
+import { Provider } from "react-redux";
 
 class App extends Component {
-	state = FormContext.defaultState;
-
-	onClickHandler = () => {
-		console.log(this.state);
-	}
-
-	updateContext = (name, val) => {
-		this.setState((prev, props) => {
-			if(prev[name] === undefined || prev[name] !== val) {
-				return {[name]: val};
-			}
-		});
-	}
-
   render() {
     return (
-			<FormContext.Provider value={{updateContext: this.updateContext}}>
+		 	<Provider store={store}>
       	<div className="App">
 	        <h2>Make an order online for the selected services.</h2>
 
-					<HeaderSection title="Basic Details" />
-
-					<Input value={this.state.name} type="text" name="name" label="Name" />
-
-					<Input value={this.state.packing_service} type="checkbox" name="packing_service" label="Packing?" />
-
-					<Input value={this.state.to.floor} type="select" name="to_floor" label="floor"
-						options={[
-							{text: 'sdsds', value : 'dsdsds'},
-							{text: 'sdsds', value : 'dsdsds'},
-							{text: 'sdsds', value : 'dsdsds'}
-						]}
-					/>
-
-					<button onClick={this.onClickHandler}>Show Context</button>
+				<TextInput name="to__floor" />
+				<CheckBox name="packing_service" />
+				<SelectInput name="vehicle" options={[
+					{
+						value : "iveco",
+						text : "Iveco"
+					}
+				]} />
       	</div>
-			</FormContext.Provider>
+			</Provider>
     );
   }
 }

@@ -1,8 +1,4 @@
-import React from 'react';
-
-const FormContext = React.createContext();
-
-FormContext.defaultState = {
+export default {
 	'name' : 'Genci',
 	'phone' : '',
 	'email' : '',
@@ -30,5 +26,3 @@ FormContext.defaultState = {
 	'comment' : '',
 	'files' : ''
 }
-
-export default FormContext;

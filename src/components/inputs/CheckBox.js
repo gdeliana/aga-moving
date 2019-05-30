@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
+import { updateform } from '../../actions/actions';
+import { connect } from "react-redux";
 
 class CheckBox extends Component {
-	onChange = (event) => {
-		this.props.updateContext(event.target.checked);
+	state = {
+		checked : false
 	}
-
+	onChange = (event) => {
+		this.props.updateform(this.props.name, !this.state.checked);
+	}
 	render () {
 		return (
-			<input id={this.props.id} type="checkbox" name={this.props.name} checked={this.props.checked} onChange={this.onChange} />
+			<input id={this.props.name} type="checkbox" name={this.props.name} checked={this.props.checked} onChange={this.onChange} />
 		);
 	}
 }
 
-export default CheckBox;
+function mapStateToProps(state, ownProps) {
+  return {
+	  value: state[ownProps.name]
+  };
+}
+
+const mapDispatchToProps = {
+	updateform
+}
+
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(CheckBox);
