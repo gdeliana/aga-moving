@@ -11,7 +11,7 @@ class TextInput extends Component {
 	}
 	render () {
 		return (
-			<input id={this.props.name} type="text" name={this.props.name} value={this.props.value} onChange={this.onChange} />
+			<input className="form-control" placeholder={this.props.label} id={this.props.name} type="text" name={this.props.name} value={this.props.value} onChange={this.onChange} />
 		);
 	}
 }

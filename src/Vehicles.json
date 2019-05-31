@@ -1,0 +1,38 @@
+[
+	{
+		"id" : "iveco_daily",
+		"name" : "Iveco Daily",
+		"prices" : {
+			"only_vehicle" : 500,
+			"1_worker" : 700,
+			"2_worker" : 900,
+			"3_worker" : 1100
+		},
+		"images" : {
+			"main" : "/vehicles/iveco.png",
+			"other" : [
+				"/vehicles/iveco1.png",
+				"/vehicles/iveco2.png",
+				"/vehicles/iveco3.png",
+			]
+		}
+	},
+	{
+		"id" : "iveco_daily1",
+		"name" : "Iveco Daily1",
+		"prices" : {
+			"only_vehicle" : 600,
+			"1_worker" : 900,
+			"2_worker" : 1000,
+			"3_worker" : 1200
+		},
+		"images" : {
+			"main" : "/vehicles/iveco.png",
+			"other" : [
+				"/vehicles/iveco1.png",
+				"/vehicles/iveco2.png",
+				"/vehicles/iveco3.png",
+			]
+		}
+	}
+]

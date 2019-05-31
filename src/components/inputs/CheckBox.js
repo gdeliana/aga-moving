@@ -11,7 +11,7 @@ class CheckBox extends Component {
 	}
 	render () {
 		return (
-			<input id={this.props.name} type="checkbox" name={this.props.name} checked={this.props.checked} onChange={this.onChange} />
+			<input className="form-control" id={this.props.name} type="checkbox" name={this.props.name} checked={this.props.checked} onChange={this.onChange} />
 		);
 	}
 }

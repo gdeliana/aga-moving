@@ -3,6 +3,10 @@ import { updateform } from '../../actions/actions';
 import { connect } from "react-redux";
 
 class SelectInput extends Component {
+	constructor (props) {
+		super();
+		this.options = props.options || [];
+	}
 	state = {
 		value : ''
 	}
@@ -11,12 +15,12 @@ class SelectInput extends Component {
 	}
 	render() {
 		return (
-			<select defaultValue="" name={this.props.name} onChange={this.onChange}>
+			<select className="form-control" defaultValue="" name={this.props.name} onChange={this.onChange}>
 			<option value="">Please select</option>
-			{this.props.options.map((option, i) =>
-					<option key={i} value={option.value}>
-						{option.text}
-					</option>
+			{this.options.map((option, i) =>
+				<option key={i} value={option.value}>
+					{option.text}
+				</option>
 			)}
 			</select>
 		)
