@@ -6,7 +6,11 @@ class HeaderSection extends Component {
 		return (
 			<div className="HeaderSection row">
 				<div className="col-12">
-					<Tag>
+					<Tag style={{
+						textAlign: "center",
+						marginBottom : "20px",
+						marginTop: "20px"
+					}}>
 						{this.props.title}
 					</Tag>
 				</div>

@@ -3,11 +3,8 @@ import { updateform } from '../../actions/actions';
 import { connect } from "react-redux";
 
 class CheckBox extends Component {
-	state = {
-		checked : false
-	}
 	onChange = (event) => {
-		this.props.updateform(this.props.name, !this.state.checked);
+		this.props.updateform(this.props.name, !this.props.checked);
 	}
 	render () {
 		return (
@@ -17,9 +14,22 @@ class CheckBox extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  return {
-	  value: state[ownProps.name]
-  };
+	let name = ownProps.name || "";
+   let keys = ownProps.name.split('__');
+   let depth = keys.length;
+   if(depth === 1){
+ 	  return {
+ 		  checked: state[keys[0]]
+ 	  }
+   }else if (depth === 2){
+ 	  return {
+ 		  checked: state[keys[0]][keys[1]]
+ 	  }
+   }else if (depth === 3){
+ 	  return {
+ 		  checked: state[keys[0]][keys[1]][keys[2]]
+ 	  }
+   }
 }
 
 const mapDispatchToProps = {

@@ -5,20 +5,21 @@ export default {
 	'date' : '',
 	'from' : {
 		'city' : '',
-		'country' : '',
+		'country' : 'Czech Republic',
 		'street' : '',
-		'size' : '',
-		'floor' : '',
-		'lift' : ''
+		'size' : '1+kk',
+		'floor' : 'Ground floor',
+		'lift' : true
 	},
 	'to' : {
 		'street' : '',
 		'city' : '',
-		'country' : '',
-		'floor' : '',
-		'lift' : ''
+		'country' : 'Czech Republic',
+		'floor' : 'Ground floor',
+		'lift' : true
 	},
 	'vehicle' : '',
+	'workers' : '',
 	'packing_service' : false,
 	'heavy_products' : false,
 	'appointment' : false,

@@ -24,15 +24,29 @@ class Calendar extends React.Component {
     return (
       <Flatpickr data-enable-time
         value={date}
-        onChange={this.onChange} />
+        onChange={this.onChange}
+		  className="form-control" />
     )
   }
 }
 
 function mapStateToProps(state, ownProps) {
-  return {
-	  value: state[ownProps.name]
-  };
+	let name = ownProps.name || "";
+   let keys = ownProps.name.split('__');
+   let depth = keys.length;
+   if(depth === 1){
+ 	 return {
+ 		 value: state[keys[0]]
+ 	 }
+   }else if (depth === 2){
+ 	 return {
+ 		 value: state[keys[0]][keys[1]]
+ 	 }
+   }else if (depth === 3){
+ 	 return {
+ 		 value: state[keys[0]][keys[1]][keys[2]]
+ 	 }
+   }
 }
 
 const mapDispatchToProps = {
