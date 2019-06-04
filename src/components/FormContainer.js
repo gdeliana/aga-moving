@@ -7,6 +7,8 @@ import countries from '../countries.json';
 
 import floors from '../floors.json';
 
+import VehiclesInputContainer from './inputs/VehiclesInput.js';
+
 export default class Form extends React.Component {
 	onSubmit = (event) => {
 		event.preventDefault();
@@ -125,6 +127,12 @@ export default class Form extends React.Component {
 							{"value" : true, "text" : "Yes"},
 							{"value" : false, "text" : "No"}
 						]} />
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-12">
+						<VehiclesInputContainer />
 					</div>
 				</div>
 			</form>
