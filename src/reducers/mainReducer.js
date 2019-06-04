@@ -11,7 +11,8 @@ export default function mainReducer (state = initialState, action) {
 			let obj = {};
 			if(depth === 3){
 				obj[key_levels[0]] = state[key_levels[0]];
-				obj[key_levels[0]][key_levels[1]][key_levels[3]] = action.value;
+				obj[key_levels[0]][key_levels[1]] = state[key_levels[0]][key_levels[1]];
+				obj[key_levels[0]][key_levels[1]][key_levels[2]] = action.value;
 			}else if(depth === 2){
 				obj[key_levels[0]] = state[key_levels[0]];
 				obj[key_levels[0]][key_levels[1]] = action.value;
@@ -20,9 +21,16 @@ export default function mainReducer (state = initialState, action) {
 			}
 			return Object.assign({}, state, obj);
 		case "MAPSAUTOCOMPLETE":
-			new AddressAutocomplete('#'+action.name, (results) => {
+			console.log(AddressAutocomplete);
+			let ac = new AddressAutocomplete('#'+action.name, (results) => {
 				const addressObject = results;
+				console.log(results);
 			});
+			console.log(ac);
+			return state;
+		case 'VALIDATEINPUT':
+
+		return state;
 		default:
 			return state;
 	}

@@ -5,3 +5,9 @@
 	width: 100%;
 	max-width: 300px;
 }
+.form-control.correct {
+	border-color: green !important;
+}
+.form-control.incorrect {
+	border-color: red !important;
+}

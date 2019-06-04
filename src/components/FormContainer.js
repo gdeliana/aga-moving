@@ -23,7 +23,7 @@ export default class Form extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Input name="name" label="First Name" type="TextInput" />
+						<Input required={true} name="name" label="First Name" type="TextInput" />
 					</div>
 				</div>
 
