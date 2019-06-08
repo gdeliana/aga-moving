@@ -26,7 +26,11 @@ export default function mainReducer (state = initialState, action) {
 			return Object.assign({}, state, {
 				vehicle: action.vehicle,
 				workers: action.workers
-			})
+			});
+		case 'SUBMITFORM':
+			console.log(state);
+			return state;
+		break;
 		default:
 			return state;
 	}

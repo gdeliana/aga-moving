@@ -1,5 +1,7 @@
 import React from 'react';
 import HeaderSection from './HeaderSection';
+import { submitform } from '../actions/actions';
+import { connect } from "react-redux";
 import Input from './Input';
 
 import countries from '../countries.json';
@@ -8,9 +10,10 @@ import floors from '../floors.json';
 
 import VehiclesInputContainer from './inputs/VehiclesInput.js';
 
-export default class Form extends React.Component {
+class Form extends React.Component {
 	onSubmit = (event) => {
 		event.preventDefault();
+		this.props.submitform();
 	}
 	render () {
 		return (
@@ -184,7 +187,22 @@ export default class Form extends React.Component {
 						<Input type="file" name="files" label="Files" />
 					</div>
 				</div>
+
+				<div className="row">
+					<div className="col-12">
+						<input type="submit" value="SUBMIT" />
+					</div>
+				</div>
 			</form>
 		)
 	}
 }
+
+// maps the component props to reducers
+const mapDispatchToProps = {
+	submitform
+}
+
+export default connect(
+  null, mapDispatchToProps
+)(Form);
