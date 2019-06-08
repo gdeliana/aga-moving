@@ -1,5 +1,5 @@
 export default {
-	'name' : 'Genci',
+	'name' : '',
 	'phone' : '',
 	'email' : '',
 	'date' : '',
@@ -18,12 +18,14 @@ export default {
 		'floor' : 'Ground floor',
 		'lift' : true
 	},
-	'vehicle' : '',
-	'workers' : '',
+	'vehicle' : null,
+	'workers' : null,
 	'packing_service' : false,
 	'heavy_products' : false,
 	'appointment' : false,
+	"packing_materials_switch" : false,
 	'packing_materials' : [],
-	'comment' : '',
-	'files' : ''
+	'comment' : "",
+	'files' : null,
+	'valid' : true,
 }

@@ -1,7 +1,7 @@
 [
 	{
 		"id" : "iveco_daily",
-		"name" : "Iveco Daily",
+		"name" : "Mercedes Sprinter",
 		"prices" : {
 			"only vehicle" : 500,
 			"1 workers" : 700,
@@ -9,17 +9,18 @@
 			"3 workers" : 1100
 		},
 		"images" : {
-			"main" : "/vehicles/iveco.png",
+			"main" : "http://agamoving.cz/images/_DSC8596.JPG",
 			"other" : [
 				"/vehicles/iveco1.png",
 				"/vehicles/iveco2.png",
 				"/vehicles/iveco3.png"
 			]
-		}
+		},
+		"extra_info" : "The minimum charge is for 2 hours"
 	},
 	{
 		"id" : "iveco_daily1",
-		"name" : "Iveco Daily1",
+		"name" : "Reanult Master",
 		"prices" : {
 			"only vehicle" : 600,
 			"1 worker" : 900,
@@ -27,12 +28,32 @@
 			"3 workers" : 1200
 		},
 		"images" : {
-			"main" : "/vehicles/iveco.png",
+			"main" : "http://agamoving.cz/images/foto1_1.jpg",
 			"other" : [
 				"/vehicles/iveco1.png",
 				"/vehicles/iveco2.png",
 				"/vehicles/iveco3.png"
 			]
-		}
+		},
+		"extra_info" : "The minimum charge is for 2 hours"
+	},
+	{
+		"id" : "iveco_daily1",
+		"name" : "Iveco Eurocargo",
+		"prices" : {
+			"only vehicle" : 600,
+			"1 worker" : 900,
+			"2 workers" : 1000,
+			"3 workers" : 1200
+		},
+		"images" : {
+			"main" : "http://agamoving.cz/images/_DSC8529.JPG",
+			"other" : [
+				"/vehicles/iveco1.png",
+				"/vehicles/iveco2.png",
+				"/vehicles/iveco3.png"
+			]
+		},
+		"extra_info" : "The minimum charge is for 2 hours"
 	}
 ]

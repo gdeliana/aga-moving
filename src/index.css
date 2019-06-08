@@ -11,3 +11,35 @@
 .form-control.incorrect {
 	border-color: red !important;
 }
+
+.form-control[type="checkbox"] {
+	width: 22px;
+	height: 22px;
+	display: inline-block;
+}
+
+.vehicle_worker_option, .vehicle_worker_option * {
+	transition: all 150ms linear;
+}
+
+.vehicle_worker_option {
+
+	padding: 0px;
+	margin-bottom: 10px;
+}
+
+.vehicle_worker_option img {
+	height: 132px;
+	margin: auto;
+	display: block;
+	margin-top: 13px;
+	margin-bottom: 15px;
+}
+
+.vehicle_worker_option .innerWrapper {
+	border: 1px solid gray;
+	border-radius: 6px;
+	padding: 15px 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+}

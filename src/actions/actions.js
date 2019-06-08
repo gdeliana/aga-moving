@@ -1,6 +1,6 @@
 export const UPDATEFORM = "UPDATEFORM";
-export const MAPSAUTOCOMPLETE = "MAPSAUTOCOMPLETE";
 export const VALIDATEINPUT = "VALIDATEINPUT";
+export const UPDATEVEHICLEWORKER = "UPDATEVEHICLEWORKER";
 // actions serve as interfaces for the reducers (the real actions), just defining the placeholder or mappings
 export const updateform = (name, value) => ({
 	type: UPDATEFORM,
@@ -8,14 +8,15 @@ export const updateform = (name, value) => ({
 	value: value,
 });
 
-export const autocomplete = (name, value) => ({
-	type: MAPSAUTOCOMPLETE,
-	name : name,
-	value: value,
-});
+export const updatevehicleworker = (vehicle, workers) => {
+	return {
+		type: UPDATEVEHICLEWORKER,
+		vehicle, workers
+	}
+}
 
-export const validateinput = (value, type) => ({
-	type: MAPSAUTOCOMPLETE,
-	validationType : type,
-	value: value,
+export const validateinput = (inputName, validationResult) => ({
+	type: VALIDATEINPUT,
+	validationResult,
+	inputName,
 });

@@ -1,47 +1,106 @@
 import vehicles from '../../Vehicles.json';
-import React, { Component } from 'react';
-import { updateform } from '../../actions/actions';
+import React from 'react';
+import { updatevehicleworker } from '../../actions/actions';
 import { connect } from "react-redux";
 import classNames from 'classnames';
+import HeaderSection from '../HeaderSection.js'
 
-export default class VehiclesInputContainer extends React.Component {
+class VehiclesInputContainer extends React.Component {
+	onClick = (vehicle) => {
+		this.props.updatevehicleworker(vehicle, null);
+	}
+
+	onChangeWorkers = (event) => {
+		event.stopPropagation();
+		this.props.updatevehicleworker(this.props.vehicle, event.target.options[event.target.selectedIndex].value);
+	}
+
 	render () {
 		const vehiclesElements = vehicles.map((vehicle, id) => (
-			<Vehicle key={id} {...vehicle} />
+			<Vehicle enabled={(this.props.vehicle === vehicle.name) ? true : (this.props.vehicle === null) ? null : false} onClick={this.onClick} key={id} workers={this.props.workers} onChangeWorkers={this.onChangeWorkers} {...vehicle} />
 		));
 
 		return (
-			<div className="row">
-				{vehiclesElements}
-			</div>
+			<React.Fragment>
+				<div className="row" >
+					<div className="col-12" >
+						<HeaderSection size="4" title="Choose vehicle and workers count" />
+						<hr />
+					</div>
+				</div>
+				<div className="row">
+					{vehiclesElements}
+				</div>
+			</React.Fragment>
 		)
 	}
 }
 
 
 class Vehicle extends React.Component {
+	onclick = (event) => {
+		if(event.target.classList.contains('form-control') || event.target.classList.contains('worker_option')){
+			return false;
+		}
+		this.props.onClick(this.props.name);
+	}
 	render () {
 		const options = Object.keys(this.props.prices).map((option, id) => (
-			<option key={id} value={option}>
-				{option} - {this.props.prices[option]}
+			<option className="worker_option" key={id} value={option}>
+				{option} - {this.props.prices[option]} czk.
 			</option>
 		));
+		const classes = classNames({
+			"col-12" : true,
+			"col-md-4" : true,
+			"enabled" : ((this.props.enabled === false || this.props.enabled === null) ? false : true),
+			"vehicle_worker_option" : true
+		});
+		const inputsActive = (this.props.enabled === true) ? "" : "disabled";
 		return (
-			<div className="col-12 col-md-4 vehicle_worker_option">
-				<input disabled type="hidden" name="vehicle" value={this.props.name} />
+			<div onClick={this.onclick} className={classes}>
+				<div className="row innerWrapper">
+				<div className="col-12">
+				<input disabled={inputsActive} type="hidden" name="vehicle" value={this.props.name} />
 				<div className="row">
 					<div className="col-12">
-						<img src={this.props.images.main} className="img-responsive" />
+						{this.props.name}
 					</div>
 				</div>
 				<div className="row">
 					<div className="col-12">
-						<select name="workers">
+						<img alt={this.props.name} src={this.props.images.main} className="img-fluid" />
+					</div>
+				</div>
+				{(this.props.enabled === true) && <div className="row">
+					<div className="col-12">
+						<select disabled={inputsActive} onChange={this.props.onChangeWorkers} defaultValue={this.props.workers} className="form-control" name="workers">
+							<option value="">Please select workers</option>
 							{options}
 						</select>
+						<span className="extra_info">{this.props.extra_info}</span>
 					</div>
+				</div>}
+				</div>
 				</div>
 			</div>
 		)
 	}
 }
+
+// maps redux state with component prop, for initial loading
+function mapStateToProps(state, ownProps) {
+	return {
+		workers : state.workers,
+		vehicle : state.vehicle
+	}
+}
+
+// maps the component props to reducers
+const mapDispatchToProps = {
+	updatevehicleworker
+}
+
+export default connect(
+  mapStateToProps, mapDispatchToProps
+)(VehiclesInputContainer);

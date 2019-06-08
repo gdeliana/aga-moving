@@ -3,7 +3,7 @@ import { updateform } from '../../actions/actions';
 import { connect } from "react-redux";
 import classNames from 'classnames';
 
-class TextInput extends Component {
+class TextArea extends Component {
 	state = {
 		correct : null
 	}
@@ -21,7 +21,7 @@ class TextInput extends Component {
 			'incorrect' : (this.state.correct === false)
 		})
 		return (
-			<input className={classes} placeholder={this.props.label} id={this.props.name} type="text" name={this.props.name} value={this.props.value} onChange={this.onChange} />
+			<textarea className={classes} placeholder={this.props.label} id={this.props.name} type="text" name={this.props.name} value={this.props.value} onChange={this.onChange} />
 		);
 	}
 }
@@ -53,4 +53,4 @@ const mapDispatchToProps = {
 
 export default connect(
   mapStateToProps, mapDispatchToProps
-)(TextInput);
+)(TextArea);

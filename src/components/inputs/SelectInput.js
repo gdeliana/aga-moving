@@ -31,7 +31,7 @@ class SelectInput extends Component {
 
 function mapStateToProps(state, ownProps) {
 	let name = ownProps.name || "";
-   let keys = ownProps.name.split('__');
+   let keys = name.split('__');
    let depth = keys.length;
    if(depth === 1){
  	  return {

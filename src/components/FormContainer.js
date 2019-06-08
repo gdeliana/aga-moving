@@ -1,7 +1,6 @@
 import React from 'react';
 import HeaderSection from './HeaderSection';
 import Input from './Input';
-import Calendar from './inputs/Calendar';
 
 import countries from '../countries.json';
 
@@ -133,6 +132,56 @@ export default class Form extends React.Component {
 				<div className="row">
 					<div className="col-12">
 						<VehiclesInputContainer />
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-12">
+						<HeaderSection title="Other options" size="4" />
+						<hr />
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-12">
+						<Input type="checkbox" name="packing_service" label="I need packing and unpacking service:" options={countries} />
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-12">
+						<Input type="checkbox" name="heavy_products" label="Do you have items heavier than 100Kg?" options={countries} />
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-12">
+						<Input type="checkbox" name="appointment" label="If you would like a fixed price please check this box to arrange an appointment (Free of charge)" options={countries} />
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-12">
+						<Input type="checkbox" name="packing_materials_switch" label="I need packing and unpacking service:" options={countries} />
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-12">
+						<HeaderSection title="Additional" size="4" />
+						<hr />
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-12">
+						<Input type="largeText" name="comment" label="Comments" />
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-12">
+						<Input type="file" name="files" label="Files" />
 					</div>
 				</div>
 			</form>

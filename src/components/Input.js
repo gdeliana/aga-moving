@@ -1,9 +1,12 @@
 import React from 'react';
 import TextInput from './inputs/TextInput';
+import TextArea from './inputs/TextArea';
 import CheckBox from './inputs/CheckBox';
 import SelectInput from './inputs/SelectInput';
 import InputLabel from './inputs/InputLabel';
 import Calendar from './inputs/Calendar';
+import FileInput from './inputs/FileInput';
+import classNames from 'classnames';
 
 export default class Input extends React.Component {
 	validate = (value) => {
@@ -20,7 +23,9 @@ export default class Input extends React.Component {
 			"text" : TextInput,
 			"select" : SelectInput,
 			"checkbox" : CheckBox,
-			"calendar" : Calendar
+			"calendar" : Calendar,
+			"largeText" : TextArea,
+			'file' : FileInput
 		}
 		const props = {
 			...this.props,
@@ -29,12 +34,23 @@ export default class Input extends React.Component {
 		const El = Cmps[this.props.type] || TextInput;
 		return (
 			<div className="row form-group">
-				<div className="col-12 col-sm-6" style={{textAlign: 'center'}}>
+				<div className={classNames({
+					"col-12" : (this.props.type !== "checkbox"),
+					"col-sm-6" : (this.props.type !== "checkbox"),
+					"d-none" : (this.props.type !== "checkbox"),
+					"d-sm-flex" : (this.props.type !== "checkbox"),
+					"col-9" : (this.props.type === "checkbox")
+				})} style={{textAlign: 'center'}}>
 					<InputLabel for={this.props.name} label={this.props.label} />
 				</div>
-				<div className="col-12 col-sm-6">
+				<div style={{
+					textAlign : ((this.props.type === 'checkbox') ? 'center' : 'inherit')
+				}} className={classNames({
+					"col-12" : (this.props.type !== "checkbox"),
+					"col-sm-6" : (this.props.type !== "checkbox"),
+					"col-3" : (this.props.type === "checkbox")
+				})}>
 					<El {...props} />
-					<small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
 				</div>
 			</div>
 		)

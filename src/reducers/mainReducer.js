@@ -1,5 +1,4 @@
 import initialState from '../FormContext.js';
-import AddressAutocomplete from 'google-address-autocomplete';
 // action parameters is the one defined in the actions
 // action parameter is overwritten before with the mapStateToProps object
 export default function mainReducer (state = initialState, action) {
@@ -20,17 +19,14 @@ export default function mainReducer (state = initialState, action) {
 				obj[key_levels[0]] = action.value;
 			}
 			return Object.assign({}, state, obj);
-		case "MAPSAUTOCOMPLETE":
-			console.log(AddressAutocomplete);
-			let ac = new AddressAutocomplete('#'+action.name, (results) => {
-				const addressObject = results;
-				console.log(results);
-			});
-			console.log(ac);
-			return state;
 		case 'VALIDATEINPUT':
 
-		return state;
+			return state;
+		case 'UPDATEVEHICLEWORKER':
+			return Object.assign({}, state, {
+				vehicle: action.vehicle,
+				workers: action.workers
+			})
 		default:
 			return state;
 	}
