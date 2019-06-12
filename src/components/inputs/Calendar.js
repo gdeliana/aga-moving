@@ -10,13 +10,17 @@ class Calendar extends React.Component {
     super();
 
     this.state = {
-      date: new Date()
+      date: new Date(),
+		correct: null
     };
   }
 
   onChange = (date) => {
 	  this.setState({date});
 	  this.props.updateform(this.props.name, date);
+	  this.setState({
+		  correct: this.props.validate(date)
+	  });
   }
 
   render() {

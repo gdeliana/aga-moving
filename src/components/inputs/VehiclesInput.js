@@ -1,11 +1,16 @@
 import vehicles from '../../Vehicles.json';
 import React from 'react';
-import { updatevehicleworker } from '../../actions/actions';
+import { updatevehicleworker, validateinput } from '../../actions/actions';
 import { connect } from "react-redux";
 import classNames from 'classnames';
 import HeaderSection from '../HeaderSection.js'
 
 class VehiclesInputContainer extends React.Component {
+	constructor (props) {
+		super();
+		props.validateinput('vehicle', false);
+		props.validateinput('workers', false);
+	}
 	onClick = (vehicle) => {
 		this.props.updatevehicleworker(vehicle, null);
 	}
@@ -98,7 +103,7 @@ function mapStateToProps(state, ownProps) {
 
 // maps the component props to reducers
 const mapDispatchToProps = {
-	updatevehicleworker
+	updatevehicleworker, validateinput
 }
 
 export default connect(

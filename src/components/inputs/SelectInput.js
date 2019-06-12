@@ -3,17 +3,21 @@ import { updateform } from '../../actions/actions';
 import { connect } from "react-redux";
 
 class SelectInput extends Component {
+	state = {
+		correct : null
+	}
 	constructor (props) {
 		super();
 		this.options = props.options || [];
 		this.text_key = props.text_key || 'text';
 		this.value_key = props.value_key || 'value';
 	}
-	componentWillReceiveProps (props) {
-		console.log(this);
-	}
 	onChange = (event) => {
-		this.props.updateform(this.props.name, event.target.options[event.target.selectedIndex].value);
+		let value = event.target.options[event.target.selectedIndex].value;
+		this.props.updateform(this.props.name, value);
+		this.setState({
+			correct: this.props.validate(value)
+		});
 	}
 	render() {
 		return (

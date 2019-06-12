@@ -7,8 +7,16 @@ import InputLabel from './inputs/InputLabel';
 import Calendar from './inputs/Calendar';
 import FileInput from './inputs/FileInput';
 import classNames from 'classnames';
+import { validateinput } from '../actions/actions';
+import { connect } from "react-redux";
 
-export default class Input extends React.Component {
+class Input extends React.Component {
+	constructor (props) {
+		super();
+		if(props.required) {
+			props.validateinput(props.name, false);
+		}
+	}
 	validate = (value) => {
 		let correct;
 		if(value.length > 0 || !this.props.required){
@@ -16,6 +24,7 @@ export default class Input extends React.Component {
 		}else{
 			correct = false;
 		}
+		this.props.validateinput(this.props.name, correct);
 		return correct;
 	}
 	render() {
@@ -56,3 +65,12 @@ export default class Input extends React.Component {
 		)
 	}
 }
+
+// maps the component props to reducers
+const mapDispatchToProps = {
+	validateinput
+}
+
+export default connect(
+  null, mapDispatchToProps
+)(Input);

@@ -24,6 +24,6 @@ export const submitform = () => {
 
 export const validateinput = (inputName, validationResult) => ({
 	type: VALIDATEINPUT,
-	validationResult,
-	inputName,
+	error : !validationResult,
+	name: inputName,
 });

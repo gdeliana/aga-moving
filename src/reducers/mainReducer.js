@@ -20,17 +20,34 @@ export default function mainReducer (state = initialState, action) {
 			}
 			return Object.assign({}, state, obj);
 		case 'VALIDATEINPUT':
-
-			return state;
+			let errors = state.errors;
+			if(errors === null){
+				errors = {};
+			}
+			errors[action.name] = action.error;
+			return Object.assign({}, state, {
+				errors
+			});
 		case 'UPDATEVEHICLEWORKER':
 			return Object.assign({}, state, {
 				vehicle: action.vehicle,
 				workers: action.workers
 			});
 		case 'SUBMITFORM':
-			console.log(state);
-			return state;
-		break;
+			let errors = state.errors;
+			let isValidForm = true;
+			let errorMessages = [];
+			for (let fieldName in errors){
+				let validField = errors[fieldName];
+				if(!validField){
+					isValidForm = false;
+					errorMessages.push('Please correct '+fieldName);
+				}
+			}
+			return Object.assign({}, state, {
+				valid: isValidForm,
+				errorMessages
+			});
 		default:
 			return state;
 	}

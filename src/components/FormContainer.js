@@ -27,7 +27,7 @@ class Form extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Input required={true} name="name" label="First Name" type="TextInput" />
+						<Input required name="name" label="First Name" type="TextInput" />
 					</div>
 				</div>
 
