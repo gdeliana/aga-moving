@@ -38,6 +38,7 @@ function mapStateToProps(state, ownProps) {
 	let name = ownProps.name || "";
    let keys = name.split('__');
    let depth = keys.length;
+	state = state.main;
    if(depth === 1){
  	 return {
  		 value: state[keys[0]]

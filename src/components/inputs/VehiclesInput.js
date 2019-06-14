@@ -1,6 +1,6 @@
-import vehicles from '../../Vehicles.json';
 import React from 'react';
 import { updatevehicleworker, validateinput } from '../../actions/actions';
+import { fetchVehicles } from '../../actions/vehicleActions';
 import { connect } from "react-redux";
 import classNames from 'classnames';
 import HeaderSection from '../HeaderSection.js';
@@ -21,7 +21,7 @@ class VehiclesInputContainer extends React.Component {
 	}
 
 	render () {
-		const vehiclesElements = vehicles.map((vehicle, id) => (
+		const vehiclesElements = this.props.vehicles.map((vehicle, id) => (
 			<Vehicle enabled={(this.props.vehicle === vehicle.name) ? true : (this.props.vehicle === null) ? null : false} onClick={this.onClick} key={id} workers={this.props.workers} onChangeWorkers={this.onChangeWorkers} {...vehicle} />
 		));
 
@@ -96,8 +96,9 @@ class Vehicle extends React.Component {
 // maps redux state with component prop, for initial loading
 function mapStateToProps(state, ownProps) {
 	return {
-		workers : state.workers,
-		vehicle : state.vehicle
+		workers : state.main.workers,
+		vehicle : state.main.vehicle,
+		vehicles : state.vehicle.vehiclesPayload
 	}
 }
 

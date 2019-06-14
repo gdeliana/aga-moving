@@ -216,8 +216,8 @@ class Form extends React.Component {
 
 function mapStateToProps (state, ownProps) {
 	return {
-		errors : state.errorMessages,
-		success : state.successMessages
+		errors : state.main.errorMessages,
+		success : state.main.successMessages
 	};
 };
 
