@@ -34,20 +34,27 @@ export default function mainReducer (state = initialState, action) {
 				workers: action.workers
 			});
 		case 'SUBMITFORM':
-			let errors = state.errors;
+			let formErrors = state.errors;
 			let isValidForm = true;
 			let errorMessages = [];
-			for (let fieldName in errors){
-				let validField = errors[fieldName];
-				if(!validField){
+			for (let fieldName in formErrors){
+				let invalidField = formErrors[fieldName];
+				if(invalidField){
 					isValidForm = false;
 					errorMessages.push('Please correct '+fieldName);
 				}
 			}
-			return Object.assign({}, state, {
-				valid: isValidForm,
-				errorMessages
-			});
+			if(!isValidForm){
+				return Object.assign({}, state, {
+					valid: isValidForm,
+					errorMessages
+				});
+			}else{
+				return Object.assign({}, state, {
+					valid: isValidForm,
+					successMessages : ["You have successfully booked a moving date!"]
+				});
+			}
 		default:
 			return state;
 	}

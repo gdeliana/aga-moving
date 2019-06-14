@@ -29,6 +29,6 @@ export default {
 	'files' : null,
 	'valid' : true,
 	'errors' : null,
-	'errorMessages' : null,
-	'successMessages' : null
+	'errorMessages' : [],
+	'successMessages' : []
 }

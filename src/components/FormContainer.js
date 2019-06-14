@@ -188,9 +188,25 @@ class Form extends React.Component {
 					</div>
 				</div>
 
-				<div className="row">
+				<div className="row form-group">
 					<div className="col-12">
-						<input type="submit" value="SUBMIT" />
+						<input type="submit" className="btn btn-primary form-control" value="SUBMIT" />
+					</div>
+				</div>
+
+				<div className="row form-group">
+					<div className="col-12">
+						{this.props.errors.map((error, key) => (
+							<p key={key} className="error">{error}</p>
+						))}
+					</div>
+				</div>
+
+				<div className="row form-group">
+					<div className="col-12">
+						{this.props.success.map((msg, key) => (
+							<p key={key} className="success">{msg}</p>
+						))}
 					</div>
 				</div>
 			</form>
@@ -198,11 +214,18 @@ class Form extends React.Component {
 	}
 }
 
+function mapStateToProps (state, ownProps) {
+	return {
+		errors : state.errorMessages,
+		success : state.successMessages
+	};
+};
+
 // maps the component props to reducers
 const mapDispatchToProps = {
 	submitform
 }
 
 export default connect(
-  null, mapDispatchToProps
+  mapStateToProps, mapDispatchToProps
 )(Form);
