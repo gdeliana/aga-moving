@@ -3,7 +3,7 @@ import React from 'react';
 import { updatevehicleworker, validateinput } from '../../actions/actions';
 import { connect } from "react-redux";
 import classNames from 'classnames';
-import HeaderSection from '../HeaderSection.js'
+import HeaderSection from '../HeaderSection.js';
 
 class VehiclesInputContainer extends React.Component {
 	constructor (props) {
