@@ -2,9 +2,9 @@ import { FETCH_VEHICLES_BEGIN, FETCH_VEHICLES_SUCCESS, FETCH_VEHICLES_FAILURE } 
 import vehicles from '../Vehicles.json';
 
 const vehiclesState = {
-	vehiclesPayload: vehicles,
-	loadingVehicles: false,
-	errorVehicles: null
+	vehicles: vehicles,
+	loading: false,
+	error: null
 }
 
 export default function vehicleReducer (state = vehiclesState, action) {

@@ -98,7 +98,7 @@ function mapStateToProps(state, ownProps) {
 	return {
 		workers : state.main.workers,
 		vehicle : state.main.vehicle,
-		vehicles : state.vehicle.vehiclesPayload
+		vehicles : state.vehicle.vehicles
 	}
 }
 
