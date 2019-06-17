@@ -20,24 +20,38 @@ class VehiclesInputContainer extends React.Component {
 		this.props.updatevehicleworker(this.props.vehicle, event.target.options[event.target.selectedIndex].value);
 	}
 
+	componentDidMount () {
+		this.props.fetchVehicles();
+	}
+
 	render () {
 		const vehiclesElements = this.props.vehicles.map((vehicle, id) => (
 			<Vehicle enabled={(this.props.vehicle === vehicle.name) ? true : (this.props.vehicle === null) ? null : false} onClick={this.onClick} key={id} workers={this.props.workers} onChangeWorkers={this.onChangeWorkers} {...vehicle} />
 		));
 
-		return (
-			<React.Fragment>
-				<div className="row" >
-					<div className="col-12" >
-						<HeaderSection size="4" title="Choose vehicle and workers count" />
-						<hr />
+		const Loading = () => <div className="loading"><p>Loading vehicles</p></div>;
+
+		const Error = () => <div className="error"><p>Error loading vehicles</p></div>;
+
+		if (this.props.error) {
+			return <Error />;
+		} else if (this.props.loading) {
+			return <Loading />;
+		} else {
+			return (
+				<React.Fragment>
+					<div className="row" >
+						<div className="col-12" >
+							<HeaderSection size="4" title="Choose vehicle and workers count" />
+							<hr />
+						</div>
 					</div>
-				</div>
-				<div className="row">
-					{vehiclesElements}
-				</div>
-			</React.Fragment>
-		)
+					<div className="row">
+						{vehiclesElements}
+					</div>
+				</React.Fragment>
+			)
+		}
 	}
 }
 
@@ -98,13 +112,15 @@ function mapStateToProps(state, ownProps) {
 	return {
 		workers : state.main.workers,
 		vehicle : state.main.vehicle,
-		vehicles : state.vehicle.vehicles
+		vehicles : state.vehicle.vehicles,
+		loading : state.vehicle.loading,
+		error: state.vehicle.error
 	}
 }
 
 // maps the component props to reducers
 const mapDispatchToProps = {
-	updatevehicleworker, validateinput
+	updatevehicleworker, validateinput, fetchVehicles
 }
 
 export default connect(

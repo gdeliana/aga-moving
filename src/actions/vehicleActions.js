@@ -15,3 +15,21 @@ export const fetchVehiclesFailure = error => ({
   type: FETCH_VEHICLES_FAILURE,
   payload: { error }
 });
+
+export function fetchVehicles () {
+	return dispatch => {
+        dispatch(fetchVehiclesBegin());
+        fetch('http://www.agamoving.cz/api_aga/?type=get&object=vehicles')
+        .then(res => res.json())
+        .then(res => {
+            if(res.error) {
+                throw(res.error);
+            }
+            dispatch(fetchVehiclesSuccess(res));
+            return res;
+        })
+        .catch(error => {
+            dispatch(fetchVehiclesFailure(error));
+        })
+    }
+};

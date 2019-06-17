@@ -1,8 +1,8 @@
 import { FETCH_VEHICLES_BEGIN, FETCH_VEHICLES_SUCCESS, FETCH_VEHICLES_FAILURE } from '../actions/vehicleActions.js';
-import vehicles from '../Vehicles.json';
+//import vehicles from '../Vehicles.json';
 
 const vehiclesState = {
-	vehicles: vehicles,
+	vehicles: [],
 	loading: false,
 	error: null
 }
@@ -19,7 +19,7 @@ export default function vehicleReducer (state = vehiclesState, action) {
 			return {
 				loading: false,
 				error:false,
-				vehicles: [],
+				vehicles: action.payload,
 			}
 		case FETCH_VEHICLES_FAILURE:
 			return {
