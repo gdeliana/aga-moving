@@ -10,6 +10,8 @@ import floors from '../floors.json';
 
 import VehiclesInputContainer from './inputs/VehiclesInput.js';
 
+import PackingMaterials from './inputs/PackingMaterials';
+
 class Form extends React.Component {
 	onSubmit = (event) => {
 		event.preventDefault();
@@ -179,6 +181,12 @@ class Form extends React.Component {
 				<div className="row">
 					<div className="col-12">
 						<Input type="largeText" name="comment" label="Comments" />
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-12">
+						<PackingMaterials />
 					</div>
 				</div>
 

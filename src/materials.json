@@ -1,0 +1,30 @@
+[
+	{
+		"name" : "Medium box",
+		"price" : 500,
+		"unit" : "box",
+		"description" : "(33.5cm x 55cm x 35cm)",
+		"image" : "http://agamoving.cz/images/materials/_DSC8184.JPG"
+	},
+	{
+		"name" : "Medium box",
+		"price" : 500,
+		"unit" : "box",
+		"description" : "(33.5cm x 55cm x 35cm)",
+		"image" : "http://agamoving.cz/images/materials/_DSC8184.JPG"
+	},
+	{
+		"name" : "Medium box",
+		"price" : 500,
+		"unit" : "box",
+		"description" : "(33.5cm x 55cm x 35cm)",
+		"image" : "http://agamoving.cz/images/materials/_DSC8184.JPG"
+	},
+	{
+		"name" : "Medium box",
+		"price" : 500,
+		"unit" : "box",
+		"description" : "(33.5cm x 55cm x 35cm)",
+		"image" : "http://agamoving.cz/images/materials/_DSC8184.JPG"
+	}
+]

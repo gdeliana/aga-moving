@@ -1,3 +1,4 @@
+import axios from 'axios';
 export const FETCH_VEHICLES_BEGIN   = 'FETCH_VEHICLES_BEGIN';
 export const FETCH_VEHICLES_SUCCESS = 'FETCH_VEHICLES_SUCCESS';
 export const FETCH_VEHICLES_FAILURE = 'FETCH_VEHICLES_FAILURE';
@@ -8,28 +9,28 @@ export const fetchVehiclesBegin = () => ({
 
 export const fetchVehiclesSuccess = vehicles => ({
   type: FETCH_VEHICLES_SUCCESS,
-  payload: { vehicles }
+  payload: vehicles
 });
 
 export const fetchVehiclesFailure = error => ({
   type: FETCH_VEHICLES_FAILURE,
-  payload: { error }
+  payload: error
 });
 
 export function fetchVehicles () {
 	return dispatch => {
         dispatch(fetchVehiclesBegin());
-        fetch('http://www.agamoving.cz/api_aga/?type=get&object=vehicles')
-        .then(res => res.json())
-        .then(res => {
-            if(res.error) {
-                throw(res.error);
-            }
-            dispatch(fetchVehiclesSuccess(res));
-            return res;
+        axios.get('http://www.agamoving.cz/api_aga/?type=get&object=vehicles', {
+			  responseType: 'json'
+		  })
+        .then(function(res) {
+				if(res.data){
+					dispatch(fetchVehiclesSuccess(res.data));
+				}
         })
-        .catch(error => {
-            dispatch(fetchVehiclesFailure(error));
-        })
+        .catch(function(error) {
+			  	console.log(error);
+		  		dispatch(fetchVehiclesFailure(error));
+        });
     }
 };

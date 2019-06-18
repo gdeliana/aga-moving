@@ -9,7 +9,6 @@ class FileInput extends React.Component {
 	}
 
 	onChange = (event) => {
-		console.log(event.target.files);
 		this.props.updateform(this.props.name, event.target.files);
 	}
 

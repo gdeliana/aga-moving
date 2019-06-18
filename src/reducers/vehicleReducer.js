@@ -1,5 +1,5 @@
 import { FETCH_VEHICLES_BEGIN, FETCH_VEHICLES_SUCCESS, FETCH_VEHICLES_FAILURE } from '../actions/vehicleActions.js';
-//import vehicles from '../Vehicles.json';
+
 
 const vehiclesState = {
 	vehicles: [],

@@ -33,10 +33,16 @@ class VehiclesInputContainer extends React.Component {
 
 		const Error = () => <div className="error"><p>Error loading vehicles</p></div>;
 
+		const NoVehicle = () => (
+			<div className="no_vehicles"><p>No vehicles available</p></div>
+		);
+
 		if (this.props.error) {
 			return <Error />;
 		} else if (this.props.loading) {
 			return <Loading />;
+		}  else if (this.props.vehicles.length == 0) {
+			return <NoVehicle />;
 		} else {
 			return (
 				<React.Fragment>
