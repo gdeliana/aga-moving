@@ -41,7 +41,7 @@ class VehiclesInputContainer extends React.Component {
 			return <Error />;
 		} else if (this.props.loading) {
 			return <Loading />;
-		}  else if (this.props.vehicles.length == 0) {
+		}  else if (this.props.vehicles.length === 0) {
 			return <NoVehicle />;
 		} else {
 			return (
