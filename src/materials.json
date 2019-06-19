@@ -1,5 +1,6 @@
 [
 	{
+		"id" : 1,
 		"name" : "Medium box",
 		"price" : 500,
 		"unit" : "box",
@@ -7,6 +8,7 @@
 		"image" : "http://agamoving.cz/images/materials/_DSC8184.JPG"
 	},
 	{
+		"id" : 2,
 		"name" : "Medium box",
 		"price" : 500,
 		"unit" : "box",
@@ -14,6 +16,7 @@
 		"image" : "http://agamoving.cz/images/materials/_DSC8184.JPG"
 	},
 	{
+		"id" : 3,
 		"name" : "Medium box",
 		"price" : 500,
 		"unit" : "box",
@@ -21,6 +24,7 @@
 		"image" : "http://agamoving.cz/images/materials/_DSC8184.JPG"
 	},
 	{
+		"id" : 4,
 		"name" : "Medium box",
 		"price" : 500,
 		"unit" : "box",
