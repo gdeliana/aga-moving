@@ -20,7 +20,15 @@ class PackingMaterials extends React.Component {
 				const quantity = (this.props.selection[material.id]) ? this.props.selection[material.id] : 0;
 				return <PackingMaterial onChange={this.props.updateMaterialQuantity} {...material} key={key} quantity={quantity} />
 			});
-			return materials;
+			return (
+				<div className="row">
+					<div className="col-12">
+						<HeaderSection title="Please select the needed packing materials" size="4" />
+						<hr />
+					</div>
+					{materials}
+				</div>
+			);
 		}
 		return <div />;
 	}
@@ -33,15 +41,35 @@ class PackingMaterial extends React.Component {
 
 	render () {
 		return (
-			<div className="col-sm-6 col-4">
-				<div className="row">
-					<div className="col-12">
-						{this.props.name}
+			<div className="col-sm-6 col-md-4 col-6 packing_material">
+				<div className="wrapper">
+					<div className="row">
+						<img src={this.props.image} className="img-fluid" />
 					</div>
-				</div>
-				<div className="row">
-					<div className="col-12">
-						<input type="text" value={this.props.quantity} onChange={this.onChange} />
+					<div className="row">
+						<div className="col-12">
+							{this.props.name}
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-12">
+							{this.props.price} czk/{this.props.unit}
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-12">
+							{this.props.description !== '' ? this.props.description : "no description"}
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-12">
+							<input type="text" value={this.props.quantity} onChange={this.onChange} />
+						</div>
+					</div>
+					<div className="row">
+						<div className="col-12">
+							Price: {this.props.quantity * this.props.price} czk
+						</div>
 					</div>
 				</div>
 			</div>

@@ -43,3 +43,21 @@
 	margin-left: 0px;
 	margin-right: 0px;
 }
+
+.packing_material {
+	text-align: center;
+	margin-bottom:20px;
+}
+
+.packing_material .wrapper {
+	padding-left: 25px;
+padding-right: 25px;
+border: 1px solid black;
+padding-bottom: 10px;
+padding-top: 10px;
+}
+
+.packing_material input {
+	width: 80%;
+	text-align: center;
+}

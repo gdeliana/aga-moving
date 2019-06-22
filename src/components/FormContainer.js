@@ -186,15 +186,16 @@ class Form extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<PackingMaterials />
-					</div>
-				</div>
-
-				<div className="row">
-					<div className="col-12">
 						<Input type="file" name="files" label="Files" />
 					</div>
 				</div>
+
+				{this.props.show_materials ?
+				(<div className="row">
+					<div className="col-12">
+						<PackingMaterials />
+					</div>
+				</div>) : <div />}
 
 				<div className="row form-group">
 					<div className="col-12">
@@ -225,7 +226,8 @@ class Form extends React.Component {
 function mapStateToProps (state, ownProps) {
 	return {
 		errors : state.main.errorMessages,
-		success : state.main.successMessages
+		success : state.main.successMessages,
+		show_materials : state.main.packing_materials_switch
 	};
 };
 
