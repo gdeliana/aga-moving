@@ -1,5 +1,5 @@
 import React from 'react';
-import { validateinput, updateMaterialQuantity } from '../../actions/actions';
+import { updateMaterialQuantity } from '../../actions/actions';
 import { fetchMaterials } from '../../actions/packingMaterialsActions';
 import { connect } from "react-redux";
 import classNames from 'classnames';
@@ -11,7 +11,11 @@ class PackingMaterials extends React.Component {
 	}
 
 	render() {
-		if(this.props.show_materials){
+		if(this.props.loading) {
+			return <div className="loading">Loading materials</div>
+		}else if(this.props.error){
+			return <div className="error">Error loading materials</div>
+		}else if(this.props.show_materials){
 			const materials = this.props.materials.map((material, key) => {
 				const quantity = (this.props.selection[material.id]) ? this.props.selection[material.id] : 0;
 				return <PackingMaterial onChange={this.props.updateMaterialQuantity} {...material} key={key} quantity={quantity} />
@@ -47,14 +51,15 @@ class PackingMaterial extends React.Component {
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		materials : state.materials.materials,
+		materials : state.materials.payload,
 		selection : state.main.packing_materials,
-		show_materials : state.main.packing_materials_switch
+		show_materials : state.main.packing_materials_switch,
+		loading: state.materials.loading,
+		error: state.materials.error
 	}
 };
 
 const mapDispatchToProps = {
-	validateinput,
 	fetchMaterials,
 	updateMaterialQuantity
 }
