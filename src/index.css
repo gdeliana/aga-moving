@@ -64,6 +64,22 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 	margin-bottom: 15px;
 }
 
+.vehicle_worker_option .zoom-image, .packing_material .zoom-image {
+	position: absolute;
+	top: -10px;
+	right: 0px;
+	background-color: #43b100;
+	color: white;
+	padding: 1px 6px 4px;
+	border: 1px solid black;
+	border-radius: 7px;
+	font-size: 10px;
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+	cursor: hand; cursor: pointer;
+}
+
 .vehicle_worker_option .innerWrapper {
 	border: 1px solid gray;
 	border-radius: 6px;
@@ -88,7 +104,7 @@ box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 padding-right: 25px;
 border: 1px solid black;
 padding-bottom: 10px;
-padding-top: 10px;
+padding-top: 15px;
 }
 
 .packing_material input {
@@ -114,4 +130,55 @@ padding-top: 10px;
   60.56% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.002, 0, 1); }
   82.78% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
   100% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
+}
+
+.modal-wrapper {
+	position: fixed;
+	background-color: #80808052;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	margin: 0px;
+	max-width: 100%;
+	z-index: 99999999999;
+	justify-content: center;
+	align-content: center;
+	align-items: center;
+	cursor: auto;
+}
+
+.custom-modal {
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	padding: 10px;
+	border: 1px solid;
+	border-radius: 8px;
+	background-color: white;
+	position: relative;
+	max-width: 80%;
+	max-height: 90%;
+}
+
+.custom-modal .close {
+	position: absolute;
+	right: -13px;
+	top: -14px;
+	background: gray;
+	border: 1px solid black;
+	border-radius: 12px;
+	padding: 4px 8px 6px;
+	cursor: hand;
+	cursor: pointer;
+	opacity: 0.8;
+	font-size: 17px;
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+}
+
+.custom-modal .modal-body {
+	overflow: auto;
 }

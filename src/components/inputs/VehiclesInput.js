@@ -4,6 +4,7 @@ import { fetchVehicles } from '../../actions/vehicleActions';
 import { connect } from "react-redux";
 import classNames from 'classnames';
 import HeaderSection from '../HeaderSection.js';
+import {Modal} from '../Modal';
 
 class VehiclesInputContainer extends React.Component {
 	constructor (props) {
@@ -121,7 +122,7 @@ class Vehicle extends React.Component {
 					<div className="col-12" style={{
 						minHeight: "150px"
 					}}>
-						<img alt={this.props.name} src={this.props.images.main} className="img-fluid" />
+						<VehicleImage name={this.props.name} image={this.props.images.main} />
 					</div>
 				</div>
 				{(this.props.enabled === true) && <div style={{
@@ -158,6 +159,52 @@ class Vehicle extends React.Component {
 			</div>
 		)
 	}
+}
+
+class VehicleImage extends React.Component {
+	state = {
+		image : null,
+		openedModal: false
+	}
+
+	componentDidMount = () => {
+		setTimeout(() => {
+			this.setState({
+				image : this.props.image
+			});
+		}, 500);
+	}
+
+	openImageModal = (event) => {
+		event.stopPropagation();
+		let {openedModal} = this.state;
+		this.setState({
+			openedModal : !openedModal
+		});
+	}
+
+	modalState = (opened) => {
+		this.setState({
+			openedModal: opened
+		})
+	}
+
+	render = () => (
+		<div style={{
+			"position" : "relative",
+			"margin" : "auto"
+		}}>
+		<img alt={this.props.name} src={this.state.image === null ? "http://www.agamoving.cz/loading.gif" : this.state.image} style={{
+			height: (this.state.image === null ? "150px" : "inherit")
+		}} className="img-fluid" />
+		{this.state.openedModal && (
+			<Modal propagateState={this.modalState} opened>
+				<img alt={this.props.name} src={this.props.image} className="img-fluid" />
+			</Modal>
+		)}
+		<span onClick={this.openImageModal} className="zoom-image">Zoom+</span>
+		</div>
+	)
 }
 
 // maps redux state with component prop, for initial loading

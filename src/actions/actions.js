@@ -11,7 +11,6 @@ export const updateform = (name, value) => ({
 });
 
 export const updatevehicleworker = (vehicle, workers) => {
-	console.log(vehicle);
 	return {
 		type: UPDATEVEHICLEWORKER,
 		vehicle, workers

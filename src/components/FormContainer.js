@@ -41,7 +41,7 @@ class Form extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Input required name="email" label="Email" type="text" />
+						<Input validationRegex={/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/} required name="email" label="Email" type="text" />
 					</div>
 				</div>
 

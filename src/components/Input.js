@@ -18,10 +18,13 @@ class Input extends React.Component {
 		}
 	}
 	validate = (value) => {
-		let correct;
-		if(value.length > 0 || !this.props.required){
+		let correct = false;
+		if(this.props.validationRegex){
+			correct = this.props.validationRegex.test(value);
+		}else if(value.length > 0 || !this.props.required){
 			correct = true;
-		}else{
+		}
+		if(value.length > 0 && /\<.+\/\>|\<.+\>.*\<\/.+\>/.test(value)){
 			correct = false;
 		}
 		this.props.validateinput(this.props.name, correct);
@@ -46,8 +49,8 @@ class Input extends React.Component {
 				<div className={classNames({
 					"col-12" : (this.props.type !== "checkbox"),
 					"col-sm-6" : (this.props.type !== "checkbox"),
-					"d-none" : ((this.props.type !== "checkbox" && this.props.type !== "calendar" && this.props.type !== "select") || this.props.type === "text"),
-					"d-sm-flex" : (this.props.type !== "checkbox"  && this.props.type !== "text"),
+					"d-none" : ((this.props.type !== "checkbox" && this.props.type !== "calendar" && this.props.type !== "select" && this.props.type !== 'file') || this.props.type === "text" || this.props.type === "largeText"),
+					"d-sm-flex" : (this.props.type !== "checkbox" && this.props.type !== "text" && this.props.type !== "largeText"),
 					"col-9" : (this.props.type === "checkbox")
 				})} style={{textAlign: 'center'}}>
 					<InputLabel for={this.props.name} label={this.props.label} />
@@ -56,7 +59,7 @@ class Input extends React.Component {
 					textAlign : ((this.props.type === 'checkbox') ? 'center' : 'inherit')
 				}} className={classNames({
 					"col-12" : (this.props.type !== "checkbox"),
-					"col-sm-6" : (this.props.type !== "checkbox" && this.props.type !== "text"),
+					"col-sm-6" : (this.props.type !== "checkbox" && this.props.type !== "text" && this.props.type !== "largeText"),
 					"col-3" : (this.props.type === "checkbox")
 				})}>
 					<El {...props} />
