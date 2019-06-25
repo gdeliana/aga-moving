@@ -36,6 +36,7 @@ export default function mainReducer (state = initialState, action) {
 			let formErrors = state.errors;
 			let isValidForm = true;
 			let errorMessages = [];
+			let successMessages = [];
 			for (let fieldName in formErrors){
 				let invalidField = formErrors[fieldName];
 				if(invalidField){
@@ -43,17 +44,14 @@ export default function mainReducer (state = initialState, action) {
 					errorMessages.push('Please correct '+fieldName);
 				}
 			}
-			if(!isValidForm){
-				return Object.assign({}, state, {
-					valid: isValidForm,
-					errorMessages
-				});
-			}else{
-				return Object.assign({}, state, {
-					valid: isValidForm,
-					successMessages : ["You have successfully booked a moving date!"]
-				});
+			if(isValidForm){
+				successMessages.push("You have successfully booked a moving date!")
 			}
+			return Object.assign({}, state, {
+				valid: isValidForm,
+				errorMessages,
+				successMessages
+			});
 		case 'UPDATEMATERIALQUANTITY':
 			const current = state.packing_materials;
 			const quantity = parseInt(action.quantity) > 0 ? parseInt(action.quantity) : 0;

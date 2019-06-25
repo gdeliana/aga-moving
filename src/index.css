@@ -22,14 +22,42 @@
 	transition: all 150ms linear;
 }
 
-.vehicle_worker_option {
+.vehicle_worker_option .innerWrapper {
+	cursor: hand; cursor: pointer;
+}
 
+.vehicle_worker_option {
+	text-align: center;
 	padding: 0px;
 	margin-bottom: 10px;
+	position: relative;
+}
+
+.vehicle_worker_option .selected {
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-image: url('http://agamoving.cz/img/tick_vehicle.png');
+	width: 38px;
+	height: 40px;
+	display: none;
+	position: absolute;
+	top: -17px;
+	right: 5px;
+	z-index: 500;
+}
+
+.vehicle_worker_option.enabled .selected {
+	display: block;
+}
+
+.vehicle_worker_option.enabled .innerWrapper {
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 
 .vehicle_worker_option img {
-	height: 132px;
 	margin: auto;
 	display: block;
 	margin-top: 13px;
@@ -40,8 +68,8 @@
 	border: 1px solid gray;
 	border-radius: 6px;
 	padding: 15px 0px;
-	margin-left: 0px;
-	margin-right: 0px;
+	margin-left: -5px;
+	margin-right: -5px;
 }
 
 .packing_material {

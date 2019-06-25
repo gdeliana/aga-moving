@@ -46,8 +46,8 @@ class Input extends React.Component {
 				<div className={classNames({
 					"col-12" : (this.props.type !== "checkbox"),
 					"col-sm-6" : (this.props.type !== "checkbox"),
-					"d-none" : (this.props.type !== "checkbox"),
-					"d-sm-flex" : (this.props.type !== "checkbox"),
+					"d-none" : ((this.props.type !== "checkbox" && this.props.type !== "calendar" && this.props.type !== "select") || this.props.type === "text"),
+					"d-sm-flex" : (this.props.type !== "checkbox"  && this.props.type !== "text"),
 					"col-9" : (this.props.type === "checkbox")
 				})} style={{textAlign: 'center'}}>
 					<InputLabel for={this.props.name} label={this.props.label} />
@@ -56,7 +56,7 @@ class Input extends React.Component {
 					textAlign : ((this.props.type === 'checkbox') ? 'center' : 'inherit')
 				}} className={classNames({
 					"col-12" : (this.props.type !== "checkbox"),
-					"col-sm-6" : (this.props.type !== "checkbox"),
+					"col-sm-6" : (this.props.type !== "checkbox" && this.props.type !== "text"),
 					"col-3" : (this.props.type === "checkbox")
 				})}>
 					<El {...props} />

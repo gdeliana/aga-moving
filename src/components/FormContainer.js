@@ -29,7 +29,7 @@ class Form extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Input required name="name" label="First Name" type="TextInput" />
+						<Input required name="name" label="Name" type="text" />
 					</div>
 				</div>
 
@@ -41,13 +41,13 @@ class Form extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Input name="email" label="Email" type="text" />
+						<Input required name="email" label="Email" type="text" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input name="date" type="calendar" label="Date and time of moving"/>
+						<Input required name="date" type="calendar" label="Date and time of moving"/>
 					</div>
 				</div>
 

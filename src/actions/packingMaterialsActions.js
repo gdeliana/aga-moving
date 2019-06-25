@@ -1,4 +1,3 @@
-import axios from 'axios';
 import materials from '../materials.json';
 export const FETCH_MATERIALS_BEGIN = "FETCH_MATERIALS_BEGIN";
 export const FETCH_MATERIALS_SUCCESS = "FETCH_MATERIALS_SUCCESS";

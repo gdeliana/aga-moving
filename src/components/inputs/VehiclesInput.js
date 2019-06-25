@@ -12,12 +12,29 @@ class VehiclesInputContainer extends React.Component {
 		props.validateinput('workers', false);
 	}
 	onClick = (vehicle) => {
-		this.props.updatevehicleworker(vehicle, null);
+
+		let vehicleValidation = (vehicle);
+
+		if(vehicleValidation)
+			this.props.updatevehicleworker(vehicle, null);
+
+
+		this.props.validateinput('vehicle', vehicleValidation);
+		this.props.validateinput('workers', false);
 	}
 
 	onChangeWorkers = (event) => {
 		event.stopPropagation();
-		this.props.updatevehicleworker(this.props.vehicle, event.target.options[event.target.selectedIndex].value);
+		let workersSelection = event.target.options[event.target.selectedIndex].value;
+		let vehicleSelection = this.props.vehicle;
+		let workersValidation = (event.target.selectedIndex && event.target.options[event.target.selectedIndex] && event.target.options[event.target.selectedIndex].value);
+		let vehicleValidation = (this.props.vehicle);
+
+		if(vehicleValidation && workersValidation)
+			this.props.updatevehicleworker(vehicleSelection, workersSelection);
+
+		this.props.validateinput('vehicle', vehicleValidation);
+		this.props.validateinput('workers', workersValidation);
 	}
 
 	componentDidMount () {
@@ -71,8 +88,10 @@ class Vehicle extends React.Component {
 	}
 	render () {
 		const options = Object.keys(this.props.prices).map((option, id) => (
-			<option className="worker_option" key={id} value={option}>
-				{option} - {this.props.prices[option]} czk.
+			<option style={{
+				"fontSize" : "12px"
+			}} className="worker_option" key={id} value={option}>
+				{option} - {this.props.prices[option]} czk/hr.
 			</option>
 		));
 		const classes = classNames({
@@ -83,27 +102,55 @@ class Vehicle extends React.Component {
 		});
 		const inputsActive = (this.props.enabled === true) ? "" : "disabled";
 		return (
-			<div onClick={this.onclick} className={classes}>
-				<div className="row innerWrapper">
+			<div className={classes}>
+				<div className="selected"></div>
+				<div onClick={this.onclick} className="row innerWrapper">
 				<div className="col-12">
 				<input disabled={inputsActive} type="hidden" name="vehicle" value={this.props.name} />
 				<div className="row">
 					<div className="col-12">
-						{this.props.name}
+						<strong>{this.props.name}</strong>
 					</div>
 				</div>
 				<div className="row">
 					<div className="col-12">
+						<strong>{this.props.capacity} m<sup>3</sup></strong>
+					</div>
+				</div>
+				<div className="row">
+					<div className="col-12" style={{
+						minHeight: "150px"
+					}}>
 						<img alt={this.props.name} src={this.props.images.main} className="img-fluid" />
 					</div>
 				</div>
-				{(this.props.enabled === true) && <div className="row">
+				{(this.props.enabled === true) && <div style={{
+					marginTop : "15px"
+				}} className="row">
 					<div className="col-12">
-						<select disabled={inputsActive} onChange={this.props.onChangeWorkers} defaultValue={this.props.workers} className="form-control" name="workers">
+						<select style={{
+							"fontSize" : "14px"
+						}} disabled={inputsActive} onChange={this.props.onChangeWorkers} defaultValue={this.props.workers} className="form-control" name="workers">
 							<option value="">Please select workers</option>
 							{options}
 						</select>
-						<span className="extra_info">{this.props.extra_info}</span>
+						{this.props.workers !== null && (
+							<span style={{
+								"fontSize" : "11px"
+							}}>
+								Selected vehicle and workers profile:
+								<br/>
+								<span style={{
+									"fontWeight" : "bold"
+								}}>{this.props.workers}</span>
+								<br/>
+							</span>
+						)}
+						<span style={{
+							"color" : "red",
+							"fontSize" : "11px",
+							"fontWeight" : "bold"
+						}} className="extra_info">{this.props.extra_info}</span>
 					</div>
 				</div>}
 				</div>
