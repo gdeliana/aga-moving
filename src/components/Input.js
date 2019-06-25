@@ -24,7 +24,7 @@ class Input extends React.Component {
 		}else if(value.length > 0 || !this.props.required){
 			correct = true;
 		}
-		if(value.length > 0 && /\<.+\/\>|\<.+\>.*\<\/.+\>/.test(value)){
+		if(value.length > 0 && /<.+\/>|<.+>.*<\/.+>/.test(value)){
 			correct = false;
 		}
 		this.props.validateinput(this.props.name, correct);

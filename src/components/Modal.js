@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 
 export class Modal extends React.Component {
 	constructor (props) {
