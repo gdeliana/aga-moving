@@ -44,7 +44,7 @@ class PackingMaterial extends React.Component {
 			<div className="col-sm-6 col-md-4 col-6 packing_material">
 				<div className="wrapper">
 					<div className="row">
-						<img src={this.props.image} className="img-fluid" />
+						<PackingMaterialImage image={this.props.image} />
 					</div>
 					<div className="row">
 						<div className="col-12">
@@ -75,6 +75,21 @@ class PackingMaterial extends React.Component {
 			</div>
 		);
 	}
+}
+
+class PackingMaterialImage extends React.Component {
+	state = {
+		image : null
+	}
+	componentDidMount = () => {
+		setTimeout(() => {
+			this.setState({
+				image : this.props.image
+			});
+		}, 500);
+	}
+
+	render = () => <img src={this.state.image === null ? "https://ui-ex.com/images/background-transparent-loading-4.gif" : this.state.image} className="img-fluid" />
 }
 
 const mapStateToProps = (state, ownProps) => {

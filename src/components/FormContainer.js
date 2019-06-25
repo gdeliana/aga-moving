@@ -171,6 +171,13 @@ class Form extends React.Component {
 					</div>
 				</div>
 
+				{this.props.show_materials ?
+				(<div className="row">
+					<div className="col-12">
+						<PackingMaterials />
+					</div>
+				</div>) : <div />}
+
 				<div className="row">
 					<div className="col-12">
 						<HeaderSection title="Additional" size="4" />
@@ -189,13 +196,6 @@ class Form extends React.Component {
 						<Input type="file" name="files" label="Files" />
 					</div>
 				</div>
-
-				{this.props.show_materials ?
-				(<div className="row">
-					<div className="col-12">
-						<PackingMaterials />
-					</div>
-				</div>) : <div />}
 
 				<div className="row form-group">
 					<div className="col-12">

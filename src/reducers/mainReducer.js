@@ -57,16 +57,12 @@ export default function mainReducer (state = initialState, action) {
 		case 'UPDATEMATERIALQUANTITY':
 			const current = state.packing_materials;
 			const quantity = parseInt(action.quantity) > 0 ? parseInt(action.quantity) : 0;
-			if(quantity > 0){
-				return Object.assign({}, state, {
-					packing_materials : {
-						...current,
-						[action.id] : quantity
-					}
-				});
-			}else{
-				return state;
-			}
+			return Object.assign({}, state, {
+				packing_materials : {
+					...current,
+					[action.id] : quantity
+				}
+			});
 		default:
 			return state;
 	}
