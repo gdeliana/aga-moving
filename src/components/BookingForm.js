@@ -10,7 +10,7 @@ import floors from '../floors.json';
 
 import VehiclesInputContainer from './inputs/VehiclesInput.js';
 
-class Form extends React.Component {
+class BookingForm extends React.Component {
 	onSubmit = (event) => {
 		event.preventDefault();
 		this.props.submitform();
@@ -241,4 +241,4 @@ const mapDispatchToProps = {
 
 export default connect(
   mapStateToProps, mapDispatchToProps
-)(Form);
+)(BookingForm);

@@ -1,20 +1,28 @@
-import React, { Component } from 'react';
-import store from './stores/mainStore';
-import { Provider } from "react-redux";
+import React, { Component, Suspense } from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
-import Form from './components/FormContainer';
+import Header from './Header';
+import { HashRouter as Router, Route, Link } from "react-router-dom";
+
+const BookingFormWrapper = React.lazy(() => import('./components/BookingFormWrapper'));
+const Homepage = React.lazy(() => import('./pages/Homepage'));
 
 class App extends Component {
   render() {
     return (
-		 	<Provider store={store}>
 			<div id="aga">
       	<div className="aga-booking container">
-				<Form />
+			<Router>
+				<Header />
+				<div id="content">
+					<Suspense fallback={<div>Loading ...</div>}>
+						<Route path="/booking" component={BookingFormWrapper} />
+						<Route path="/" component={Homepage} />
+					</Suspense>
+				</div>
+			</Router>
       	</div>
 			</div>
-			</Provider>
     );
   }
 }
