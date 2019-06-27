@@ -193,7 +193,7 @@ class Form extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="file" name="files" label="Files" />
+						<Input type="file" name="files" label="Additional images" />
 					</div>
 				</div>
 

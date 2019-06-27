@@ -28,7 +28,6 @@
 
 .vehicle_worker_option {
 	text-align: center;
-	padding: 0px;
 	margin-bottom: 10px;
 	position: relative;
 }
@@ -110,26 +109,6 @@ padding-top: 15px;
 .packing_material input {
 	width: 80%;
 	text-align: center;
-}
-
-
-
-.packing_material {
-  animation: animation 1500ms linear both;
-}
-
-
-@keyframes animation {
-  0% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -100, 0, 1); }
-  4.1% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -41.971, 0, 1); }
-  8.11% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -10.549, 0, 1); }
-  12.11% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1.843, 0, 1); }
-  16.12% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 4.336, 0, 1); }
-  27.23% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.784, 0, 1); }
-  38.34% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, -0.104, 0, 1); }
-  60.56% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0.002, 0, 1); }
-  82.78% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
-  100% { transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
 }
 
 .modal-wrapper {

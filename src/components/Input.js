@@ -12,7 +12,7 @@ import { connect } from "react-redux";
 
 class Input extends React.Component {
 	constructor (props) {
-		super();
+		super(props);
 		if(props.required) {
 			props.validateinput(props.name, false);
 		}
