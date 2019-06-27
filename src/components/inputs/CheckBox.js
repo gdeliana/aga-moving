@@ -8,29 +8,9 @@ class CheckBox extends Component {
 	}
 	render () {
 		return (
-			<input className="form-control" id={this.props.name} type="checkbox" name={this.props.name} checked={this.props.checked} onChange={this.onChange} />
+			<input className="form-control" id={this.props.name} type="checkbox" name={this.props.name} checked={this.props.value} onChange={this.onChange} />
 		);
 	}
-}
-
-function mapStateToProps(state, ownProps) {
-	let name = ownProps.name || "";
-   let keys = name.split('__');
-   let depth = keys.length;
-	state = state.main;
-   if(depth === 1){
- 	  return {
- 		  checked: state[keys[0]]
- 	  }
-   }else if (depth === 2){
- 	  return {
- 		  checked: state[keys[0]][keys[1]]
- 	  }
-   }else if (depth === 3){
- 	  return {
- 		  checked: state[keys[0]][keys[1]][keys[2]]
- 	  }
-   }
 }
 
 const mapDispatchToProps = {
@@ -38,5 +18,5 @@ const mapDispatchToProps = {
 }
 
 export default connect(
-  mapStateToProps, mapDispatchToProps
+  null, mapDispatchToProps
 )(CheckBox);

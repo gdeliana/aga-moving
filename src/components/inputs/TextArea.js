@@ -26,32 +26,11 @@ class TextArea extends Component {
 	}
 }
 
-// maps redux state with component prop, for initial loading
-function mapStateToProps(state, ownProps) {
-	let name = ownProps.name || "";
-	let keys = name.split('__');
-	let depth = keys.length;
-	state = state.main;
-	if(depth === 1){
-		return {
-			value: state[keys[0]]
-		}
-	}else if (depth === 2){
-		return {
-			value: state[keys[0]][keys[1]]
-		}
-	}else if (depth === 3){
-		return {
-			value: state[keys[0]][keys[1]][keys[2]]
-		}
-	}
-}
-
 // maps the component props to reducers
 const mapDispatchToProps = {
 	updateform
 }
 
 export default connect(
-  mapStateToProps, mapDispatchToProps
+  null, mapDispatchToProps
 )(TextArea);

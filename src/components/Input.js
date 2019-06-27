@@ -1,11 +1,5 @@
-import React from 'react';
-import TextInput from './inputs/TextInput';
-import TextArea from './inputs/TextArea';
-import CheckBox from './inputs/CheckBox';
-import SelectInput from './inputs/SelectInput';
+import React, { Suspense } from 'react';
 import InputLabel from './inputs/InputLabel';
-import Calendar from './inputs/Calendar';
-import FileInput from './inputs/FileInput';
 import classNames from 'classnames';
 import { validateinput } from '../actions/actions';
 import { connect } from "react-redux";
@@ -32,19 +26,24 @@ class Input extends React.Component {
 	}
 	render() {
 		const Cmps = {
-			"text" : TextInput,
-			"select" : SelectInput,
-			"checkbox" : CheckBox,
-			"calendar" : Calendar,
-			"largeText" : TextArea,
-			'file' : FileInput
+			"text" : 'TextInput',
+			"select" : 'SelectInput',
+			"checkbox" : 'CheckBox',
+			"calendar" : 'Calendar',
+			"largeText" : 'TextArea',
+			'file' : 'FileInput'
 		}
+
+		const El = React.lazy(() => {
+			let elementName = Cmps[this.props.type];
+			return import('./inputs/'+elementName);
+		});
 		const props = {
 			...this.props,
 			validate : this.validate
 		}
-		const El = Cmps[this.props.type] || TextInput;
 		return (
+			<Suspense fallback={<div>Loading ...</div>}>
 			<div className="row form-group">
 				<div className={classNames({
 					"col-12" : (this.props.type !== "checkbox"),
@@ -65,7 +64,29 @@ class Input extends React.Component {
 					<El {...props} />
 				</div>
 			</div>
+			</Suspense>
 		)
+	}
+}
+
+// maps redux state with component prop, for initial loading
+function mapStateToProps(state, ownProps) {
+	let name = ownProps.name || "";
+	let keys = name.split('__');
+	let depth = keys.length;
+	state = state.main;
+	if(depth === 1){
+		return {
+			value: state[keys[0]]
+		}
+	}else if (depth === 2){
+		return {
+			value: state[keys[0]][keys[1]]
+		}
+	}else if (depth === 3){
+		return {
+			value: state[keys[0]][keys[1]][keys[2]]
+		}
 	}
 }
 
@@ -75,5 +96,5 @@ const mapDispatchToProps = {
 }
 
 export default connect(
-  null, mapDispatchToProps
+  mapStateToProps, mapDispatchToProps
 )(Input);

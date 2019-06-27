@@ -13,7 +13,11 @@ class SelectInput extends Component {
 		this.value_key = props.value_key || 'value';
 	}
 	onChange = (event) => {
-		let value = event.target.options[event.target.selectedIndex].value;
+		let value = (event.target &&
+						event.target.options &&
+						event.target.selectedIndex &&
+						event.target.options[event.target.selectedIndex] &&
+						event.target.options[event.target.selectedIndex].value) ? event.target.options[event.target.selectedIndex].value : '';
 		this.props.updateform(this.props.name, value);
 		this.setState({
 			correct: this.props.validate(value)
@@ -33,30 +37,10 @@ class SelectInput extends Component {
 	}
 }
 
-function mapStateToProps(state, ownProps) {
-	let name = ownProps.name || "";
-   let keys = name.split('__');
-   let depth = keys.length;
-	state = state.main;
-   if(depth === 1){
- 	  return {
- 		  value: state[keys[0]]
- 	  }
-   }else if (depth === 2){
- 	  return {
- 		  value: state[keys[0]][keys[1]]
- 	  }
-   }else if (depth === 3){
- 	  return {
- 		  value: state[keys[0]][keys[1]][keys[2]]
- 	  }
-   }
-}
-
 const mapDispatchToProps = {
 	updateform
 }
 
 export default connect(
-  mapStateToProps, mapDispatchToProps
+  null, mapDispatchToProps
 )(SelectInput);

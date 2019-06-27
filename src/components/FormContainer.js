@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import HeaderSection from './HeaderSection';
 import { submitform } from '../actions/actions';
 import { connect } from "react-redux";
@@ -10,14 +10,15 @@ import floors from '../floors.json';
 
 import VehiclesInputContainer from './inputs/VehiclesInput.js';
 
-import PackingMaterials from './inputs/PackingMaterials';
-
 class Form extends React.Component {
 	onSubmit = (event) => {
 		event.preventDefault();
 		this.props.submitform();
 	}
 	render () {
+		const PackingMaterials = React.lazy(() => {
+			return import('./inputs/PackingMaterials');
+		});
 		return (
 			<form onSubmit={this.onSubmit}>
 				<div className="row">
@@ -174,7 +175,9 @@ class Form extends React.Component {
 				{this.props.show_materials ?
 				(<div className="row">
 					<div className="col-12">
-						<PackingMaterials />
+						<Suspense fallback={<div>Loading ...</div>}>
+							<PackingMaterials />
+						</Suspense>
 					</div>
 				</div>) : <div />}
 
