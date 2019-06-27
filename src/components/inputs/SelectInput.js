@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { updateform } from '../../actions/actions';
 import { connect } from "react-redux";
 
-class SelectInput extends Component {
+class SelectInput extends React.Component {
 	state = {
 		correct : null
 	}

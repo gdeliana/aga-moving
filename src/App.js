@@ -9,9 +9,11 @@ class App extends Component {
   render() {
     return (
 		 	<Provider store={store}>
+			<div id="aga">
       	<div className="aga-booking container">
 				<Form />
       	</div>
+			</div>
 			</Provider>
     );
   }

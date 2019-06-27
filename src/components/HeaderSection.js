@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class HeaderSection extends Component {
+class HeaderSection extends React.Component {
 	render () {
 		const Tag = "h"+this.props.size;
 		return (

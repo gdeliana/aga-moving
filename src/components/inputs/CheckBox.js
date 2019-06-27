@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { updateform } from '../../actions/actions';
 import { connect } from "react-redux";
 
-class CheckBox extends Component {
+class CheckBox extends React.Component {
 	onChange = (event) => {
 		this.props.updateform(this.props.name, !this.props.checked);
 	}

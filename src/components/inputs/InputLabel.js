@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class InputLabel extends Component {
+class InputLabel extends React.Component {
 	render() {
 		return (
 			<label htmlFor={this.props.for}>{this.props.label}</label>

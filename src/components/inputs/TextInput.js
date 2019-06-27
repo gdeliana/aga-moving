@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { updateform } from '../../actions/actions';
 import { connect } from "react-redux";
 import classNames from 'classnames';
 
-class TextInput extends Component {
+class TextInput extends React.Component {
 	state = {
 		correct : null
 	}
