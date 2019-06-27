@@ -16,8 +16,8 @@ class App extends Component {
 				<Header />
 				<div id="content">
 					<Suspense fallback={<div>Loading ...</div>}>
-						<Route path="/new/booking" component={BookingFormWrapper} />
-						<Route path="/new/" component={Homepage} />
+						<Route path="/new/booking/" component={BookingFormWrapper} />
+						<Route exact path="/new/" component={Homepage} />
 					</Suspense>
 				</div>
 			</Router>
