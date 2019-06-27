@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import { updatevehicleworker, validateinput } from '../../actions/actions';
 import { fetchVehicles } from '../../actions/vehicleActions';
 import { connect } from "react-redux";
 import classNames from 'classnames';
 import HeaderSection from '../HeaderSection.js';
-import {Modal} from '../Modal';
+const Modal = React.lazy(() => import('../Modal'));
 
 class VehiclesInputContainer extends React.Component {
 	constructor (props) {
@@ -198,9 +198,11 @@ class VehicleImage extends React.Component {
 			height: (this.state.image === null ? "150px" : "inherit")
 		}} className="img-fluid" />
 		{this.state.openedModal && (
+			<Suspense fallback={<div>Loading ...</div>} >
 			<Modal propagateState={this.modalState} opened>
 				<img alt={this.props.name} src={this.props.image} className="img-fluid" />
 			</Modal>
+			</Suspense>
 		)}
 		<span onClick={this.openImageModal} className="zoom-image">Zoom+</span>
 		</div>

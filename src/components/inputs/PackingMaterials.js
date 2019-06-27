@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { updateMaterialQuantity } from '../../actions/actions';
 import { fetchMaterials } from '../../actions/packingMaterialsActions';
 import { connect } from "react-redux";
 import HeaderSection from '../HeaderSection.js';
-import {Modal} from '../Modal';
+
+const Modal = React.lazy(() => import('../Modal'));
 
 class PackingMaterials extends React.Component {
 	componentDidMount() {
@@ -111,9 +112,11 @@ class PackingMaterialImage extends React.Component {
 		}}>
 			<img alt={this.props.name} src={this.state.image === null ? "http://www.agamoving.cz/loading.gif" : this.state.image} className="img-fluid" />
 			{this.state.openedModal && (
+				<Suspense fallback={<div>Loading ... </div>} >
 				<Modal propagateState={this.modalState} opened>
 					<img alt={this.props.name} src={this.props.image} className="img-fluid" />
 				</Modal>
+				</Suspense>
 			)}
 			<span onClick={this.openImageModal} className="zoom-image">Zoom+</span>
 		</div>

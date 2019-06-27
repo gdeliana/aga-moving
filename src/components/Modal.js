@@ -1,6 +1,6 @@
 import React from 'react';
 
-export class Modal extends React.Component {
+export default class Modal extends React.Component {
 	constructor (props) {
 		super(props);
 		let opened = props.opened || false;
