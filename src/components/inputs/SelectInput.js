@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { mapStateToProps } from '../../customFns/formFns';
 
 class SelectInput extends React.Component {
 	constructor (props) {
@@ -30,4 +32,4 @@ class SelectInput extends React.Component {
 	}
 }
 
-export default SelectInput;
+export default connect(mapStateToProps,null)(SelectInput);

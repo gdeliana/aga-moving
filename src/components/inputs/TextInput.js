@@ -1,7 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
+import { mapStateToProps } from '../../customFns/formFns';
 
-export default class TextInput extends React.Component {
+class TextInput extends React.Component {
 	onChange = (event) => {
 		this.props.updateform(this.props.name, event.target.value);
 		this.props.validate(event.target.value)
@@ -18,3 +20,5 @@ export default class TextInput extends React.Component {
 		);
 	}
 }
+
+export default connect(mapStateToProps, null)(TextInput);

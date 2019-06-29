@@ -3,7 +3,6 @@ import React from 'react';
 class FileInput extends React.Component {
   	constructor(props) {
     	super(props);
-    	this.fileInput = React.createRef();
 	}
 
 	onChange = (event) => {
@@ -12,7 +11,7 @@ class FileInput extends React.Component {
 
   	render() {
     	return (
-      	<input accept="image/*" type="file" name={this.props.name} onChange={this.onChange} ref={this.fileInput} />
+      	<input accept="image/*" type="file" name={this.props.name} onChange={this.onChange} />
     	);
   	}
 }

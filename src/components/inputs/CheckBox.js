@@ -1,8 +1,10 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { mapStateToProps } from '../../customFns/formFns';
 
 class CheckBox extends React.Component {
 	onChange = (event) => {
-		this.props.updateform(this.props.name, !this.props.checked);
+		this.props.updateform(this.props.name, event.target.checked);
 	}
 	render () {
 		return (
@@ -11,4 +13,4 @@ class CheckBox extends React.Component {
 	}
 }
 
-export default CheckBox;
+export default connect(mapStateToProps,null)(CheckBox);

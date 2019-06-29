@@ -1,6 +1,8 @@
 import 'flatpickr/dist/themes/material_green.css';
 import Flatpickr from 'react-flatpickr';
 import React from 'react';
+import { connect } from 'react-redux';
+import { mapStateToProps } from '../../customFns/formFns';
 
 class Calendar extends React.Component {
   constructor() {
@@ -9,8 +11,6 @@ class Calendar extends React.Component {
 	 tomorrow.setDate(tomorrow.getDate() + 1);
 	 tomorrow.setHours(1,0,0);
     this.state = {
-      date: null,
-		correct: null,
 		options: {
 			minDate: tomorrow,
 			enableTime: true,
@@ -21,18 +21,15 @@ class Calendar extends React.Component {
   }
 
   onChange = (date) => {
-	  this.setState({date});
-	  this.props.updateform(this.props.name, date);
-	  this.setState({
-		  correct: this.props.validate(date)
-	  });
+	  	this.props.updateform(this.props.name, date);
+	 	this.props.validate(date)
   }
 
   render() {
-    const { date } = this.state;
+    const { value } = this.props;
     return (
       <Flatpickr data-enable-time
-        value={date}
+        value={value}
         onChange={this.onChange}
 		  className="form-control"
 		  options={this.state.options} />
@@ -40,4 +37,4 @@ class Calendar extends React.Component {
   }
 }
 
-export default Calendar;
+export default connect(mapStateToProps,null)(Calendar);

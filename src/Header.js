@@ -1,17 +1,15 @@
 import React from 'react';
 import NavBarRouter from './HeaderComponents/NavBarRouter';
 import { connect } from 'react-redux';
-import { hideMenuMobile } from './actions/appActions';
+
 
 class Header extends React.Component {
 	componentDidMount = () => {
-		window.addEventListener("click", () => this.props.hideMenuMobile());
-	  	window.addEventListener("resize", () => this.forceUpdate());
+
 	}
 
 	componentWillUnmount = () => {
-		window.removeEventListener("click", () => this.props.hideMenuMobile());
-	  	window.removeEventListener("resize", () => this.forceUpdate());
+		
 	}
 	render () {
 		return (
@@ -37,8 +35,4 @@ class Header extends React.Component {
 	}
 }
 
-const mapDispatchToProps = () => ({
-	hideMenuMobile
-})
-
-export default connect(null, mapDispatchToProps)(Header);
+export default connect(null, null)(Header);

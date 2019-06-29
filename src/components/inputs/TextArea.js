@@ -1,5 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
+import { mapStateToProps } from '../../customFns/formFns';
 
 class TextArea extends React.Component {
 	onChange = (event) => {
@@ -18,5 +20,4 @@ class TextArea extends React.Component {
 		);
 	}
 }
-
-export default TextArea;
+export default connect(mapStateToProps,null)(TextArea);

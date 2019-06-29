@@ -5,11 +5,8 @@ import { validateinput, updateform } from '../actions/actions';
 import { connect } from "react-redux";
 
 class Input extends React.Component {
-	state = {
-		correct: null
-	}
 	constructor (props) {
-		super(props);
+		super();
 		if(props.required) {
 			props.validateinput(props.name, false);
 		}
@@ -25,12 +22,8 @@ class Input extends React.Component {
 			correct = false;
 		}
 		this.props.validateinput(this.props.name, correct);
-		this.setState({
-			correct
-		})
+		return correct;
 	}
-
-
 
 	render() {
 		const Cmps = {
@@ -50,8 +43,7 @@ class Input extends React.Component {
 			...this.props,
 			validate : this.validate,
 			id: this.props.name,
-			key: this.props.name+"_input",
-			correct: this.state.correct
+			key: this.props.name+"_input"
 		}
 		return (
 			<Suspense fallback={<div>Loading ...</div>}>
@@ -80,33 +72,11 @@ class Input extends React.Component {
 	}
 }
 
-// maps redux state with component prop, for initial loading
-function mapStateToProps(state, ownProps) {
-	let name = ownProps.name || "";
-	let keys = name.split('__');
-	let depth = keys.length;
-	let storeKey = ownProps.storeKey || "main";
-	state = state[storeKey];
-	if(depth === 1){
-		return {
-			value: state[keys[0]]
-		}
-	}else if (depth === 2){
-		return {
-			value: state[keys[0]][keys[1]]
-		}
-	}else if (depth === 3){
-		return {
-			value: state[keys[0]][keys[1]][keys[2]]
-		}
-	}
-}
-
 // maps the component props to reducers
 const mapDispatchToProps = {
 	validateinput, updateform
 }
 
 export default connect(
-  mapStateToProps, mapDispatchToProps
+  null, mapDispatchToProps
 )(Input);
