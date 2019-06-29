@@ -5,6 +5,9 @@ import { validateinput, updateform } from '../actions/actions';
 import { connect } from "react-redux";
 
 class Input extends React.Component {
+	state = {
+		correct: null
+	}
 	constructor (props) {
 		super(props);
 		if(props.required) {
@@ -22,7 +25,9 @@ class Input extends React.Component {
 			correct = false;
 		}
 		this.props.validateinput(this.props.name, correct);
-		return correct;
+		this.setState({
+			correct
+		})
 	}
 
 
@@ -43,7 +48,10 @@ class Input extends React.Component {
 		});
 		const props = {
 			...this.props,
-			validate : this.validate
+			validate : this.validate,
+			id: this.props.name,
+			key: this.props.name+"_input",
+			correct: this.state.correct
 		}
 		return (
 			<Suspense fallback={<div>Loading ...</div>}>

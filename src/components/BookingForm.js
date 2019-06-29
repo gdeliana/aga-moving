@@ -24,6 +24,7 @@ class BookingForm extends React.Component {
 			return import('./inputs/PackingMaterials');
 		});
 		return (
+			<div className="col-12">
 			<form onSubmit={this.onSubmit}>
 				<div className="row">
 					<div className="col-12">
@@ -226,6 +227,7 @@ class BookingForm extends React.Component {
 					</div>
 				</div>
 			</form>
+			</div>
 		)
 	}
 }

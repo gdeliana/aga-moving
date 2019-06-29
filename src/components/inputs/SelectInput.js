@@ -1,9 +1,6 @@
 import React from 'react';
 
 class SelectInput extends React.Component {
-	state = {
-		correct : null
-	}
 	constructor (props) {
 		super();
 		this.options = props.options || [];
@@ -17,9 +14,7 @@ class SelectInput extends React.Component {
 						event.target.options[event.target.selectedIndex] &&
 						event.target.options[event.target.selectedIndex].value) ? event.target.options[event.target.selectedIndex].value : '';
 		this.props.updateform(this.props.name, value);
-		this.setState({
-			correct: this.props.validate(value)
-		});
+		this.props.validate(value)
 	}
 	render() {
 		return (
