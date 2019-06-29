@@ -1,6 +1,4 @@
 import React from 'react';
-import { updateform } from '../../actions/actions';
-import { connect } from "react-redux";
 
 class CheckBox extends React.Component {
 	onChange = (event) => {
@@ -13,10 +11,4 @@ class CheckBox extends React.Component {
 	}
 }
 
-const mapDispatchToProps = {
-	updateform
-}
-
-export default connect(
-  null, mapDispatchToProps
-)(CheckBox);
+export default CheckBox;

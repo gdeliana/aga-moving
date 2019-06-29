@@ -1,3 +1,11 @@
+#aga {
+	position: fixed;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+overflow: auto;
+}
 .react-calendar__tile {
 	padding: 0.3em 0.5em !important;
 }
@@ -160,4 +168,74 @@ padding-top: 15px;
 
 .custom-modal .modal-body {
 	overflow: auto;
+}
+
+.MenuMobile {
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	-webkit-transition : all 300ms ease-out;
+	transition: all 300ms ease-out;
+}
+
+.MenuMobile .MenuItems {
+	display: none;
+}
+
+.MenuMobile .MenuItems ul {
+	list-style: none;
+
+	font-size: 16px;
+
+	padding-left: 10px;
+}
+
+.MenuMobile .MenuItems ul li {
+	margin-bottom: 15px;
+}
+
+.MenuMobile.open .MenuItems {
+	display: block;
+}
+
+.MenuMobile .MenuIcon {
+	padding: 15px 16px 13px;
+background-color: greenyellow;
+border-radius: 100%;
+margin-right: 15px;
+margin-bottom: 14px;
+box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+position: absolute;
+right: 0px;
+bottom:0px;
+}
+
+.MenuMobile .MenuIcon i {
+	display: inline-block;
+
+font-size: 20px;
+}
+
+.MenuMobile.open {
+	padding: 69px 24px 67px 65px;
+
+	border-top-left-radius: 63%;
+-webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+background: rgb(255,255,255);
+background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%);
+}
+
+.MenuMobile.open .MenuIcon {
+	box-shadow: none;
+	background-color: transparent;
+}
+
+@media screen and (max-width: 767px){
+	#logo img {
+		max-width: 170px;
+		margin: 17px auto;
+		display: block;
+	}
 }

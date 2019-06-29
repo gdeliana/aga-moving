@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import InputLabel from './inputs/InputLabel';
 import classNames from 'classnames';
-import { validateinput } from '../actions/actions';
+import { validateinput, updateform } from '../actions/actions';
 import { connect } from "react-redux";
 
 class Input extends React.Component {
@@ -24,6 +24,9 @@ class Input extends React.Component {
 		this.props.validateinput(this.props.name, correct);
 		return correct;
 	}
+
+
+
 	render() {
 		const Cmps = {
 			"text" : 'TextInput',
@@ -74,7 +77,8 @@ function mapStateToProps(state, ownProps) {
 	let name = ownProps.name || "";
 	let keys = name.split('__');
 	let depth = keys.length;
-	state = state.main;
+	let storeKey = ownProps.storeKey || "main";
+	state = state[storeKey];
 	if(depth === 1){
 		return {
 			value: state[keys[0]]
@@ -92,7 +96,7 @@ function mapStateToProps(state, ownProps) {
 
 // maps the component props to reducers
 const mapDispatchToProps = {
-	validateinput
+	validateinput, updateform
 }
 
 export default connect(

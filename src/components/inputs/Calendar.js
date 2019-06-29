@@ -1,9 +1,6 @@
 import 'flatpickr/dist/themes/material_green.css';
-
 import Flatpickr from 'react-flatpickr';
 import React from 'react';
-import { updateform } from '../../actions/actions';
-import { connect } from "react-redux";
 
 class Calendar extends React.Component {
   constructor() {
@@ -43,10 +40,4 @@ class Calendar extends React.Component {
   }
 }
 
-const mapDispatchToProps = {
-	updateform
-}
-
-export default connect(
-  null, mapDispatchToProps
-)(Calendar);
+export default Calendar;

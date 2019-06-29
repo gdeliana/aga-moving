@@ -10,6 +10,10 @@ import floors from '../floors.json';
 
 import VehiclesInputContainer from './inputs/VehiclesInput.js';
 
+const InputBooking = (props) => (
+	<Input {...props} storeKey="main" />
+);
+
 class BookingForm extends React.Component {
 	onSubmit = (event) => {
 		event.preventDefault();
@@ -30,25 +34,25 @@ class BookingForm extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Input required name="name" label="Name" type="text" />
+						<InputBooking required name="name" label="Name" type="text" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input name="phone" type="text" label="Telephone"/>
+						<InputBooking name="phone" type="text" label="Telephone"/>
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input validationRegex={/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/} required name="email" label="Email" type="text" />
+						<InputBooking validationRegex={/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/} required name="email" label="Email" type="text" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input required name="date" type="calendar" label="Date and time of moving"/>
+						<InputBooking required name="date" type="calendar" label="Date and time of moving"/>
 					</div>
 				</div>
 
@@ -61,25 +65,25 @@ class BookingForm extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="text" name="from__street" label="Street from" />
+						<InputBooking type="text" name="from__street" label="Street from" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="text" name="from__city" label="City from" />
+						<InputBooking type="text" name="from__city" label="City from" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="select" name="from__country" label="Country from" options={countries} value_key="name" text_key="name" defaultSelected="Czech Republic"/>
+						<InputBooking type="select" name="from__country" label="Country from" options={countries} value_key="name" text_key="name" defaultSelected="Czech Republic"/>
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="select" name="from__size" label="Size of your home" options={[
+						<InputBooking type="select" name="from__size" label="Size of your home" options={[
 							"1+kk","1+1","2+kk","2+1","3+kk","3+1","4+kk","4+1","Family house (1 floor)","Family house (2 floors)","Family house (3 floors)","Office"
 						]} />
 					</div>
@@ -87,10 +91,10 @@ class BookingForm extends React.Component {
 
 				<div className="row">
 					<div className="col-6">
-						<Input type="select" name="from__floor" defaultSelected="Ground floor" label="Floor:" options={floors} />
+						<InputBooking type="select" name="from__floor" defaultSelected="Ground floor" label="Floor:" options={floors} />
 					</div>
 					<div className="col-6">
-						<Input type="select" name="from__lift" defaultSelected={true} label="Lift:" options={[
+						<InputBooking type="select" name="from__lift" defaultSelected={true} label="Lift:" options={[
 							{"value" : true, "text" : "Yes"},
 							{"value" : false, "text" : "No"}
 						]} />
@@ -107,28 +111,28 @@ class BookingForm extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="text" name="to__street" label="Street to" />
+						<InputBooking type="text" name="to__street" label="Street to" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="text" name="to__city" label="City to" />
+						<InputBooking type="text" name="to__city" label="City to" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="select" name="to__country" defaultSelected="Czech Republic" label="Country to" options={countries} value_key="name" text_key="name" />
+						<InputBooking type="select" name="to__country" defaultSelected="Czech Republic" label="Country to" options={countries} value_key="name" text_key="name" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-6">
-						<Input type="select" name="to__floor" defaultSelected="Ground floor" label="Floor:" options={floors} />
+						<InputBooking type="select" name="to__floor" defaultSelected="Ground floor" label="Floor:" options={floors} />
 					</div>
 					<div className="col-6">
-						<Input type="select" name="to__lift" defaultSelected={true} label="Lift:" options={[
+						<InputBooking type="select" name="to__lift" defaultSelected={true} label="Lift:" options={[
 							{"value" : true, "text" : "Yes"},
 							{"value" : false, "text" : "No"}
 						]} />
@@ -150,25 +154,25 @@ class BookingForm extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="checkbox" name="packing_service" label="I need packing and unpacking service:" options={countries} />
+						<InputBooking type="checkbox" name="packing_service" label="I need packing and unpacking service:" options={countries} />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="checkbox" name="heavy_products" label="Do you have items heavier than 100Kg?" options={countries} />
+						<InputBooking type="checkbox" name="heavy_products" label="Do you have items heavier than 100Kg?" options={countries} />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="checkbox" name="appointment" label="If you would like a fixed price please check this box to arrange an appointment (Free of charge)" options={countries} />
+						<InputBooking type="checkbox" name="appointment" label="If you would like a fixed price please check this box to arrange an appointment (Free of charge)" options={countries} />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="checkbox" name="packing_materials_switch" label="I need packing and unpacking service:" options={countries} />
+						<InputBooking type="checkbox" name="packing_materials_switch" label="I need packing and unpacking service:" options={countries} />
 					</div>
 				</div>
 
@@ -190,13 +194,13 @@ class BookingForm extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="largeText" name="comment" label="Comments" />
+						<InputBooking type="largeText" name="comment" label="Comments" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<Input type="file" name="files" label="Additional images" />
+						<InputBooking type="file" name="files" label="Additional images" />
 					</div>
 				</div>
 

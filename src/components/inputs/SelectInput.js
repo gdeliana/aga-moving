@@ -1,6 +1,4 @@
 import React from 'react';
-import { updateform } from '../../actions/actions';
-import { connect } from "react-redux";
 
 class SelectInput extends React.Component {
 	state = {
@@ -37,10 +35,4 @@ class SelectInput extends React.Component {
 	}
 }
 
-const mapDispatchToProps = {
-	updateform
-}
-
-export default connect(
-  null, mapDispatchToProps
-)(SelectInput);
+export default SelectInput;

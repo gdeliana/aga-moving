@@ -1,12 +1,30 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 
-export default class NavBarRouter extends React.Component {
+class NavBarRouter extends React.Component {
 	render = () => (
 		<ul className="list-inline">
-			<li className="list-inline-item"><Link to="/new/">Home</Link></li>
-			<li className="list-inline-item"><Link to="/new/booking/">Book Online</Link></li>
+			{this.props.menuItems.map((menuItem, key) => {
+				let children = menuItem.children ? menuItem.children.map((item, key1) => (
+					<li key={key1} className="list-inline-item">
+						<Link  to={item.link}>{item.name}</Link>
+					</li>
+				)) : null;
+				return (
+					<li key={key} className="list-inline-item">
+						<Link  to={menuItem.link}>{menuItem.name}</Link>
+						{children}
+					</li>
+				);
+			})}
 		</ul>
 	)
 }
+
+const mapStateToProps = (state) => ({
+	menuItems : state.app.menuItems
+});
+
+export default connect(mapStateToProps, null)(NavBarRouter);

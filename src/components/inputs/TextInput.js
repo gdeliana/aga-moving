@@ -1,9 +1,7 @@
 import React from 'react';
-import { updateform } from '../../actions/actions';
-import { connect } from "react-redux";
 import classNames from 'classnames';
 
-class TextInput extends React.Component {
+export default class TextInput extends React.Component {
 	state = {
 		correct : null
 	}
@@ -25,12 +23,3 @@ class TextInput extends React.Component {
 		);
 	}
 }
-
-// maps the component props to reducers
-const mapDispatchToProps = {
-	updateform
-}
-
-export default connect(
-  null, mapDispatchToProps
-)(TextInput);

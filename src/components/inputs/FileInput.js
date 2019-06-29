@@ -1,6 +1,4 @@
 import React from 'react';
-import { updateform } from '../../actions/actions';
-import { connect } from "react-redux";
 
 class FileInput extends React.Component {
   	constructor(props) {
@@ -19,11 +17,4 @@ class FileInput extends React.Component {
   	}
 }
 
-// maps the component props to reducers
-const mapDispatchToProps = {
-	updateform
-}
-
-export default connect(
-  null, mapDispatchToProps
-)(FileInput);
+export default FileInput;
