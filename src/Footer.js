@@ -14,20 +14,43 @@ class Footer extends React.Component {
 		});
 	}
 	componentWillUnmount = () => {
-	  	window.removeEventListener("resize");
-		window.removeEventListener("click");
+	  	window.removeEventListener("resize", () => {
+			this.forceUpdate();
+		});
+		window.removeEventListener("click", () => {
+			this.props.hideMenuMobile();
+		});
 	}
 	render () {
+		const mobileRender = window.innerWidth < 768;
+		const mapComponent = () => (
+			<div className={mobileRender ? "col-12" : "d-sm-block col-sm-6"} style={{
+				textAlign: (mobileRender ? "left" : "right")
+			}}>
+				<h3 className="agaHeader">Areas we cover</h3>
+				<p>As a company located in the Czech Republic, we cover all Europe and we service worldwide.</p>
+				<br />
+				<img style={{
+					maxWidth: '320px',
+					margin: 'auto',
+					display: 'block'
+				}} className="img-fluid" src="http://agamoving.cz/img/blank_europe_map.gif" />
+			</div>
+		);
 		return (
 			<div className="row" id="footer">
-				<div className="col-12 col-sm-6">
+				{mobileRender && mapComponent()}
+				<div className="col-12 col-sm-6" style={{
+					marginTop: (mobileRender ? "20px" : "0px")
+				}}>
+					<h3 className="agaHeader">Contact us</h3>
+					<p>To get a quote please contact us by phone or contact form below.</p>
+					<p><a href="tel:+420604219211"><i className="fas fa-phone-alt"></i>&nbsp;+420 604 219 211</a></p>
 					<ContactForm />
 				</div>
 
-				<div className="col-12 col-sm-6">
-
-				</div>
-				{window.innerWidth < 768 && <MenuMobile />}
+				{!mobileRender && mapComponent()}
+				{mobileRender && <MenuMobile />}
 			</div>
 		)
 	}

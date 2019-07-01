@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { toggleMenuMobile } from '../actions/appActions';
 import {connect} from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 class MenuMobile extends React.Component {
 	onClickHandler = (event) => {
@@ -21,13 +21,14 @@ class MenuMobile extends React.Component {
 						if(menuItem.children){
 							children = menuItem.children.map((child, key1) => (
 								<li key={key1}>
-									<Link to={child.link} >{child.name}</Link>
+									<NavLink exact to={child.link} >{child.name}</NavLink>
 								</li>
 							));
+							children = <ul className="sub-menu">{children}</ul>;
 						}
 						return (
 							<li key={key}>
-								<Link to={menuItem.link} >{menuItem.name}</Link>
+								<NavLink exact to={menuItem.link} >{menuItem.name}</NavLink>
 								{children && (children)}
 							</li>
 						);
