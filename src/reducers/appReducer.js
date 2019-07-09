@@ -40,8 +40,7 @@ const initialState = {
 	'valid' : true,
 	'errors' : null,
 	'errorMessages' : [],
-	'successMessages' : [],
-	'gallery_payload' : []
+	'successMessages' : []
 };
 export default function appReducer (state = initialState, action) {
 	switch (action.type) {
@@ -66,25 +65,11 @@ export default function appReducer (state = initialState, action) {
 			return Object.assign({}, state, {
 				errors
 			});
-		case 'SUBMITFORM':
-			let formErrors = state.errors;
-			let isValidForm = true;
-			let errorMessages = [];
-			let successMessages = [];
-			for (let fieldName in formErrors){
-				let invalidField = formErrors[fieldName];
-				if(invalidField){
-					isValidForm = false;
-					errorMessages.push('Please correct '+fieldName);
-				}
-			}
-			if(isValidForm){
-				successMessages.push("Your message has been sent successfully!")
-			}
+		case 'SUBMITCONTACTFORMBEGIN':
 			return Object.assign({}, state, {
-				valid: isValidForm,
-				errorMessages,
-				successMessages
+				valid: true,
+				errorMessages : [],
+				successMessages : []
 			});
 		default:
 			return state;

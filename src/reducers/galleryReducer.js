@@ -1,10 +1,9 @@
-import { FETCH_GALLERY_BEGIN, FETCH_GALLERY_SUCCESS, FETCH_GALLERY_ERROR } from '../actions/galleryActions.js';
+import { FETCH_GALLERY_BEGIN, FETCH_GALLERY_SUCCESS, FETCH_GALLERY_ERROR, CLEAN_GALLERY } from '../actions/galleryActions.js';
 const initialState = {
-	images : [],
+	error: false,
 	loading: false,
-	error : false
-}
-
+	images: []
+};
 export default function galleryReducer (state = initialState, action) {
 	switch (action.type) {
 		case FETCH_GALLERY_BEGIN:
@@ -24,6 +23,12 @@ export default function galleryReducer (state = initialState, action) {
 				images: [],
 				loading: false,
 				error: true
+			}
+		case CLEAN_GALLERY:
+			return {
+				error: false,
+				loading: false,
+				images: []
 			}
 		default:
 			return state;

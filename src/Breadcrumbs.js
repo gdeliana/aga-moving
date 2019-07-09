@@ -20,7 +20,9 @@ class Breadcrumbs extends React.Component {
 
 		return (
 			<div className="breadcrumbs row">
-				<Route path="/:path" component={Breadcrumb} />
+				<div className="col-12">
+					<Route path="/:path" component={Breadcrumb} />
+				</div>
 			</div>
 		);
 	}

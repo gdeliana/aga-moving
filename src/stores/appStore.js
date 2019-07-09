@@ -11,11 +11,4 @@ const createReducer = (additionalReducers) => {
 
 const appStore = createStore(createReducer(), applyMiddleware(thunk));
 
-appStore.injectReducer = (key, reducer) => {
-	appStore.replaceReducer(createReducer({
-		key : reducer
-	}));
-	return appStore;
-}
-
 export default appStore;

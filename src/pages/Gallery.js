@@ -1,23 +1,14 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {fetchGallery} from '../actions/galleryActions';
+import {Provider} from 'react-redux';
+import galleryStore from '../stores/galleryStore';
+import GalleryImagesContainer from '../components/GalleryImagesContainer';
 
-class Gallery extends React.Component {
-	componentDidMount() {
-		this.props.fetchGallery();
-	}
+export default class Gallery extends React.Component {
 	render() {
-		console.log(this.props.images);
-		return <div/>
+		return (
+			<Provider store={galleryStore}>
+				<GalleryImagesContainer />
+			</Provider>
+		)
 	}
 }
-
-const mapDispatchToProps = {
-	fetchGallery
-}
-
-const mapStateToProps = (state) => ({
-	images: state.gallery.images
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Gallery);

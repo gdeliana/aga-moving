@@ -2,7 +2,7 @@ import axios from 'axios';
 export const FETCH_GALLERY_BEGIN = "FETCH_GALLERY_BEGIN";
 export const FETCH_GALLERY_SUCCESS = "FETCH_GALLERY_SUCCESS";
 export const FETCH_GALLERY_ERROR = "FETCH_GALLERY_ERROR";
-
+export const CLEAN_GALLERY = "CLEAN_GALLERY";
 
 
 export const fetchGalleryBegin = () => ({
@@ -20,12 +20,16 @@ export const fetchGalleryError = (error) => ({
 });
 
 export const fetchGallery = () => {
-	return (dispatch) => {
-		dispatch(fetchGalleryBegin);
+	return function(dispatch) {
+		dispatch(fetchGalleryBegin());
 		axios.get('http://agamoving.cz/api_aga/gallery.php').then((json) => {
-			dispatch(() => fetchGallerySuccess(json));
+			dispatch(fetchGallerySuccess(json.data));
 		}).catch((error) => {
-			dispatch(() => fetchGalleryError(error));
+			dispatch(fetchGalleryError(error));
 		});
 	}
 }
+
+export const cleanGallery = () => ({
+	type: CLEAN_GALLERY
+})

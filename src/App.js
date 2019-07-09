@@ -8,7 +8,7 @@ import Breadcrumbs from './Breadcrumbs';
 
 const BookingFormWrapper = React.lazy(() => import('./components/BookingFormWrapper'));
 const Homepage = React.lazy(() => import('./pages/Homepage'));
-const Gallery = React.lazy(() => import('./pages/GalleryProvider'));
+const Gallery = React.lazy(() => import('./pages/Gallery'));
 
 class App extends Component {
   render() {

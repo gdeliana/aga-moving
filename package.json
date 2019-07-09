@@ -2,7 +2,7 @@
   "name": "aga-order",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://www.agamoving.cz/new/",
+  "homepage": "/new",
   "title": "Aga Moving",
   "dependencies": {
     "animejs": "^3.0.1",
