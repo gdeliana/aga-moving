@@ -41,22 +41,26 @@ export const submitform = () => {
 		}
 		if(isValidForm){
 			import('axios').then((axios) => {
-				console.log({
+				let data = {
 					contact_name,
 					contact_email,
 					contact_message,
 					captcha
+				};
+				let query = [];
+				for(let name in data){
+					if(data.hasOwnProperty(name)){
+						let value = encodeURIComponent(data[name]);
+						query.push(encodeURIComponent(name)+"="+value);
+					}
+				}
+				query = query.join('&');
+				axios.request({
+				  method: 'post',
+				  url: 'http://www.agamoving.cz/api_aga/contact_form.php',
+				  data: query,
+				  responseType: 'text'
 				});
-				axios.post('http://www.agamoving.cz/api_aga/contact_form.php', {
-					contact_name,
-					contact_email,
-					contact_message,
-					captcha
-				}).then((res) => {
-					console.log(res);
-				}).catch(error => {
-					console.log(error);
-				})
 			});
 
 		}else{
