@@ -28,7 +28,7 @@ class Calendar extends React.Component {
   render() {
     const { value } = this.props;
     return (
-      <Flatpickr data-enable-time
+      <Flatpickr id={this.props.name} data-enable-time
         value={value}
         onChange={this.onChange}
 		  className="form-control"

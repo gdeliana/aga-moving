@@ -22,3 +22,23 @@ export const mapStateToProps = (state, ownProps) => {
 
 	return obj;
 }
+
+
+export function serializeObject(object, parent_name = '') {
+	let query = [];
+	for(let name in object){
+		if(object.hasOwnProperty(name) && object[name]){
+			let value = object[name];
+			if(typeof(value) === 'object'){
+				let prefix = (parent_name !== '') ? parent_name+"["+name+"]" : name;
+				query.push(serializeObject(value, prefix));
+			}else{
+				value = encodeURIComponent(value);
+				let new_name = (parent_name !== '') ? parent_name+"["+name+"]" : name;
+				query.push(encodeURIComponent(new_name)+"="+value);
+			}
+		}
+	}
+	query = query.join('&');
+	return query;
+}

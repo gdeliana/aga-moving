@@ -40,7 +40,7 @@ class Footer extends React.Component {
 		return (
 			<div className="row" id="footer">
 				{mobileRender && mapComponent()}
-				<div className="col-12 col-sm-6" style={{
+				<div className="col-12 col-md-6" style={{
 					marginTop: (mobileRender ? "20px" : "0px")
 				}}>
 					<h3 className="agaHeader">Contact us</h3>

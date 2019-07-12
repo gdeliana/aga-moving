@@ -9,6 +9,7 @@ import Breadcrumbs from './Breadcrumbs';
 const BookingFormWrapper = React.lazy(() => import('./components/BookingFormWrapper'));
 const Homepage = React.lazy(() => import('./pages/Homepage'));
 const Gallery = React.lazy(() => import('./pages/Gallery'));
+const Prices = React.lazy(() => import('./pages/Prices'));
 
 class App extends Component {
   render() {
@@ -27,6 +28,7 @@ class App extends Component {
 					<Suspense fallback={<div>Loading ...</div>}>
 						<Route path="/new/booking" component={BookingFormWrapper} />
 						<Route path="/new/gallery" component={Gallery} />
+						<Route path="/new/prices" component={Prices} />
 						<Route exact path="/new/" component={Homepage} />
 					</Suspense>
 

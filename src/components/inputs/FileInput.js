@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { mapStateToProps } from '../../customFns/formFns';
 
 class FileInput extends React.Component {
   	constructor(props) {
@@ -16,4 +18,4 @@ class FileInput extends React.Component {
   	}
 }
 
-export default FileInput;
+export default connect(mapStateToProps,null)(FileInput);

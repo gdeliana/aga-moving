@@ -20,7 +20,7 @@ class SelectInput extends React.Component {
 	}
 	render() {
 		return (
-			<select defaultValue={this.props.value} className="form-control" name={this.props.name} onChange={this.onChange}>
+			<select defaultValue={this.props.value} className="form-control" id={this.props.name} name={this.props.name} onChange={this.onChange}>
 			<option value="">Please select</option>
 			{this.options.map((option, i) =>
 				<option key={i} value={option[this.value_key] !== undefined ? option[this.value_key] : option}>

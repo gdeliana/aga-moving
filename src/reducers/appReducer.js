@@ -40,7 +40,8 @@ const initialState = {
 	'valid' : true,
 	'errors' : null,
 	'errorMessages' : [],
-	'successMessages' : []
+	'successMessages' : [],
+	sending_message : false
 };
 export default function appReducer (state = initialState, action) {
 	switch (action.type) {
@@ -69,7 +70,22 @@ export default function appReducer (state = initialState, action) {
 			return Object.assign({}, state, {
 				valid: true,
 				errorMessages : [],
-				successMessages : []
+				successMessages : [],
+				sending_message: true,
+			});
+		case 'SUBMITCONTACTFORMERROR':
+			return Object.assign({}, state, {
+				valid: false,
+				errorMessages : action.errors,
+				successMessages : [],
+				sending_message: false,
+			});
+		case 'SUBMITCONTACTFORMSUCCESS':
+			return Object.assign({}, state, {
+				valid: true,
+				errorMessages : [],
+				successMessages : action.response,
+				sending_message : false,
 			});
 		default:
 			return state;

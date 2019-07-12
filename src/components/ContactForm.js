@@ -36,7 +36,7 @@ class ContactForm extends React.Component {
 
 			<div className="row">
 				<div className="col-12">
-					<InputContact required type="text" name="contact_email" label="Email" />
+					<InputContact validationRegex={/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/} required type="text" name="contact_email" label="Email" />
 				</div>
 			</div>
 
@@ -80,6 +80,14 @@ class ContactForm extends React.Component {
 				</div>
 			</div>
 
+			{this.props.sending_message && (
+				<div className="row form-group">
+					<div className="col-12">
+						<p>Sending your message</p>
+					</div>
+				</div>
+			)}
+
 			<div className="row form-group">
 				<div className="col-12">
 					{this.props.errors.map((error, key) => (
@@ -102,7 +110,8 @@ class ContactForm extends React.Component {
 function mapStateToProps (state, ownProps) {
 	return {
 		errors : state.app.errorMessages,
-		success : state.app.successMessages
+		success : state.app.successMessages,
+		sending_message : state.app.sending_message
 	};
 };
 

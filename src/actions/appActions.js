@@ -41,6 +41,7 @@ export const submitform = () => {
 		}
 		if(isValidForm){
 			import('axios').then((axios) => {
+				dispatch(submitContactFormBegin());
 				let data = {
 					contact_name,
 					contact_email,
@@ -59,7 +60,21 @@ export const submitform = () => {
 				  method: 'post',
 				  url: 'http://www.agamoving.cz/api_aga/contact_form.php',
 				  data: query,
-				  responseType: 'text'
+				  responseType: 'json'
+			  	}).then(res => {
+					console.log(res);
+					if(res.data && res.data.errors && res.data.errors.length > 0){
+					  dispatch(submitContactFormError(res.data.errors));
+				  	}else if(res.data && res.data.success && res.data.success.length > 0){
+					  dispatch(submitContactFormSuccess(res.data.success));
+				  }else{
+					  dispatch(submitContactFormError(["There was a problem sending the message."]));
+				  }
+
+				}).catch(err => {
+				  if(err.statusText){
+					  dispatch(submitContactFormError([err.statusText]));
+				  }
 				});
 			});
 

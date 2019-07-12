@@ -25,7 +25,7 @@ class BookingForm extends React.Component {
 		});
 		return (
 			<div className="col-12">
-			<form onSubmit={this.onSubmit}>
+			<form id="booking-form" onSubmit={this.onSubmit} encType="multipart/form-data">
 				<div className="row">
 					<div className="col-12">
 						<HeaderSection title="AGA Moving Booking Form" size="2" />
@@ -213,7 +213,7 @@ class BookingForm extends React.Component {
 
 				<div className="row form-group">
 					<div className="col-12">
-						{this.props.errors.map((error, key) => (
+						{this.props.errors && this.props.errors.map((error, key) => (
 							<p key={key} className="error">{error}</p>
 						))}
 					</div>
@@ -221,7 +221,7 @@ class BookingForm extends React.Component {
 
 				<div className="row form-group">
 					<div className="col-12">
-						{this.props.success.map((msg, key) => (
+						{this.props.success && this.props.success.map((msg, key) => (
 							<p key={key} className="success">{msg}</p>
 						))}
 					</div>

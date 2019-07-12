@@ -2,6 +2,7 @@ import initialState from '../FormContext.js';
 // action parameters is the one defined in the actions
 // action parameter is overwritten before with the mapStateToProps object
 export default function mainReducer (state = initialState, action) {
+	console.log(state, action);
 	switch (action.type) {
 		case "UPDATEFORM":
 			let key_levels = action.name.split('__');
@@ -32,25 +33,23 @@ export default function mainReducer (state = initialState, action) {
 				vehicle: action.vehicle,
 				workers: action.workers
 			});
-		case 'SUBMITFORM':
-			let formErrors = state.errors;
-			let isValidForm = true;
-			let errorMessages = [];
-			let successMessages = [];
-			for (let fieldName in formErrors){
-				let invalidField = formErrors[fieldName];
-				if(invalidField){
-					isValidForm = false;
-					errorMessages.push('Please correct '+fieldName);
-				}
-			}
-			if(isValidForm){
-				successMessages.push("You have successfully booked a moving date!")
-			}
+		case 'SUBMITFORMBEGIN':
 			return Object.assign({}, state, {
-				valid: isValidForm,
-				errorMessages,
-				successMessages
+				errorMessages: [],
+				successMessages: [],
+				valid: null
+			});
+		case 'SUBMITFORMSUCCESS':
+			return Object.assign({}, state, {
+				errorMessages: [],
+				successMessages: action.success,
+				valid: true
+			});
+		case 'SUBMITFORMERROR':
+			return Object.assign({}, state, {
+				errorMessages: action.error,
+				successMessages: [],
+				valid: false
 			});
 		case 'UPDATEMATERIALQUANTITY':
 			const current = state.packing_materials;

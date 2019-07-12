@@ -169,6 +169,24 @@ padding-top: 15px;
 	z-index: 99;
 }
 
+.pricesTable {
+	font-size: 13px;
+}
+
+.pricesTable .vehicleImage {
+	height: 60px;
+}
+
+.pricesTable thead th {
+	vertical-align: top;
+}
+
+.fit-image {
+	display: block;
+width: 100%;
+object-fit: contain;
+}
+
 .custom-modal .modal-body {
 	overflow: auto;
 	height:100%;
