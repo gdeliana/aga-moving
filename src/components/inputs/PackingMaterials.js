@@ -81,14 +81,26 @@ class PackingMaterial extends React.Component {
 class PackingMaterialImage extends React.Component {
 	state = {
 		image : null,
-		openedModal : false
+		openedModal : false,
+		t: null
 	}
+
+	componentWillUnmount() {
+		this.setState({
+			t: null
+		})
+	}
+
 	componentDidMount = () => {
-		setTimeout(() => {
+		let t = setTimeout(() => {
 			this.setState({
 				image : this.props.image
 			});
 		}, 500);
+
+		this.setState({
+			t
+		})
 	}
 
 	openImageModal = (event) => {
