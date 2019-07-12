@@ -13,7 +13,7 @@ class FileInput extends React.Component {
 
   	render() {
     	return (
-      	<input accept="image/*" type="file" name={this.props.name} onChange={this.onChange} />
+      	<input multiple accept="image/*" type="file" id={this.props.name} name={this.props.name+"[]"} onChange={this.onChange} />
     	);
   	}
 }
