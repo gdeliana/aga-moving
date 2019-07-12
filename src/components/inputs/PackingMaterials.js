@@ -64,7 +64,7 @@ class PackingMaterial extends React.Component {
 					</div>
 					<div className="row">
 						<div className="col-12">
-							<input type="text" value={this.props.quantity} name={"packing_materials["+this.props.name+"]"} onChange={this.onChange} />
+							<input type="text" value={this.props.quantity} name={"packing_materials["+this.props.id+"]"} onChange={this.onChange} />
 						</div>
 					</div>
 					<div className="row">

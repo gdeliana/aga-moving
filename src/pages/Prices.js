@@ -1,15 +1,40 @@
 import React from 'react';
-import vehicles from '../Vehicles.json';
+import axios from 'axios';
 
 export default class Prices extends React.Component {
+
+	state = {
+		vehicles: [],
+		error: ""
+	}
+
+	componentDidMount() {
+		axios.request({
+		  method: 'get',
+		  url: 'http://www.agamoving.cz/api_aga/json/vehicles.php',
+		  responseType: 'json'
+	  }).then((res) => {
+			 if(res.data){
+				 this.setState({
+					 vehicles : res.data,
+					 error: false
+				 });
+			 }
+		}).catch((error) => {
+			this.setState({
+			   vehicles : [],
+				error: "Vehicles could not be loaded"
+			});
+		});
+	}
 
 	render() {
 		const vehicles_prices = {};
 		const vehicles_images = {};
 		const extra_info = {};
 		let vehicle_names = [];
-		for(let i in vehicles){
-			let vehicle = vehicles[i];
+		for(let i in this.state.vehicles){
+			let vehicle = this.state.vehicles[i];
 			vehicle_names.push(vehicle.name+" "+vehicle.capacity);
 			for (let price_setup in vehicle.prices){
 				let price = vehicle.prices[price_setup];
@@ -22,6 +47,13 @@ export default class Prices extends React.Component {
 			if(vehicle.extra_info){
 				extra_info[vehicle.name+" "+vehicle.capacity] = vehicle.extra_info;
 			}
+		}
+
+		if(this.state.vehicles.length == 0){
+			return <div>Could not retreive the page</div>
+		}
+		if(this.state.error) {
+			return <div>{this.state.error}</div>
 		}
 		return (
 			<React.Fragment>
