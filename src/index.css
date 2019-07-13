@@ -242,6 +242,12 @@ right: 0px;
 bottom:0px;
 }
 
+#welcome::first-letter {
+	float:left;
+	font-size: 68px;
+margin-right: 12px;
+}
+
 .MenuMobile .MenuIcon i {
 	display: inline-block;
 
@@ -304,7 +310,7 @@ transition: all 300ms ease-out;
 #header .navBar > li a {
 	margin-right: 0px;
 padding: 5px;
-font-size: 14px;
+font-size: 16px;
 transition: all 300ms ease-out;
 }
 

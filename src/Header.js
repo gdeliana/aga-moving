@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBarRouter from './HeaderComponents/NavBarRouter';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink, Link } from "react-router-dom";
 
 
 class Header extends React.Component {
@@ -10,7 +10,7 @@ class Header extends React.Component {
 			<div className="row" id="header">
 				<div className="col-12 col-md-3 col-lg-5 justify-content-center d-flex align-items-center">
 					<div id="logo">
-						<img alt="AGA Moving" src="http://agamoving.cz/img/logo.png" className="img-fluid" />
+						<Link to={this.props.homeUri}><img alt="AGA Moving" src="http://agamoving.cz/img/logo.png" className="img-fluid" /></Link>
 					</div>
 				</div>
 

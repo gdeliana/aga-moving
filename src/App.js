@@ -10,6 +10,7 @@ const BookingFormWrapper = React.lazy(() => import('./components/BookingFormWrap
 const Homepage = React.lazy(() => import('./pages/Homepage'));
 const Gallery = React.lazy(() => import('./pages/Gallery'));
 const Prices = React.lazy(() => import('./pages/Prices'));
+const About = React.lazy(() => import('./pages/About'));
 
 class App extends Component {
   render() {
@@ -20,7 +21,6 @@ class App extends Component {
 				<Provider store={appStore}>
 				<Header />
 				<Breadcrumbs />
-				</Provider>
 				<div id="content" className="row">
 				<div id="topDivider"></div>
 					<div className="col-12">
@@ -29,13 +29,13 @@ class App extends Component {
 						<Route path="/new/booking" component={BookingFormWrapper} />
 						<Route path="/new/gallery" component={Gallery} />
 						<Route path="/new/prices" component={Prices} />
+						<Route path="/new/about" component={About} />
 						<Route exact path="/new/" component={Homepage} />
 					</Suspense>
 
 					</div>
 				<div id="bottomDivider"></div>
 				</div>
-				<Provider store={appStore}>
 				<Footer />
 				</Provider>
 			</Router>
