@@ -45,7 +45,6 @@ export const submitform = () => {
 	return (dispatch, getState) => {
 		dispatch(submitformbegin());
 		let form = new FormData(document.getElementById('booking-form'));
-		console.log(form);
 		axios.request({
 			method: 'post',
 			url: 'http://agamoving.cz/api_aga/order_moving.php',

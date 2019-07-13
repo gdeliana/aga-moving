@@ -44,7 +44,7 @@ class VehiclesInputContainer extends React.Component {
 
 	render () {
 		const vehiclesElements = this.props.vehicles.map((vehicle, id) => (
-			<Vehicle enabled={(this.props.vehicle === vehicle.name) ? true : (this.props.vehicle === null) ? null : false} onClick={this.onClick} key={id} workers={this.props.workers} onChangeWorkers={this.onChangeWorkers} {...vehicle} />
+			<Vehicle enabled={(this.props.vehicle === vehicle.id) ? true : (this.props.vehicle === null) ? null : false} onClick={this.onClick} key={id} workers={this.props.workers} onChangeWorkers={this.onChangeWorkers} {...vehicle} />
 		));
 
 		const Loading = () => <div className="loading"><p>Loading vehicles</p></div>;
@@ -85,7 +85,7 @@ class Vehicle extends React.Component {
 		if(event.target.classList.contains('form-control') || event.target.classList.contains('worker_option')){
 			return false;
 		}
-		this.props.onClick(this.props.name);
+		this.props.onClick(this.props.id);
 	}
 	render () {
 		const options = Object.keys(this.props.prices).map((option, id) => (
@@ -107,7 +107,7 @@ class Vehicle extends React.Component {
 				<div className="selected"></div>
 				<div onClick={this.onclick} className="row innerWrapper">
 				<div className="col-12">
-				<input disabled={inputsActive} type="hidden" name="vehicle" value={this.props.name} />
+				<input disabled={inputsActive} type="hidden" name="vehicle" value={this.props.id} />
 				<div className="row">
 					<div className="col-12">
 						<strong>{this.props.name}</strong>
