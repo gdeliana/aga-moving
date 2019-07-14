@@ -1,11 +1,22 @@
 import React, {Suspense} from 'react';
 import {connect} from 'react-redux';
 import {fetchGallery, cleanGallery} from '../actions/galleryActions';
+import { CSSTransition } from 'react-transition-group';
 const Modal = React.lazy(() => import('./Modal'));
 
 class GalleryImagesContainer extends React.Component {
+	state = {
+		visible : false
+	}
 	componentDidMount() {
 		this.props.fetchGallery();
+		if(!this.props.error && !this.props.loading){
+			console.log('starting');
+			this.setState({
+				visible: true
+			})
+		}
+
 	}
 
 	componentWillUnmount() {
@@ -20,7 +31,18 @@ class GalleryImagesContainer extends React.Component {
 			return <div className="loading">Loading images</div>
 		}
 		const images = this.props.images.map((image, key) => <GalleryImage {...image} key={key} />);
-		return <div className="row">{images}</div>
+		return (
+			<CSSTransition
+				in={this.state.visible}
+				classNames="page"
+				timeout={500}
+			>
+			<div className="row page">
+				{images}
+			</div>
+
+			</CSSTransition>
+		);
 	}
 }
 

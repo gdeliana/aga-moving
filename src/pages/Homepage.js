@@ -1,10 +1,24 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 
 class Homepage extends React.Component {
+	state = {
+		visible : false
+	}
+	componentDidMount(){
+		this.setState({
+			visible: true
+		})
+	}
 	render = () => (
-		<div className="row">
+		<CSSTransition
+			in={this.state.visible}
+			classNames="page"
+			timeout={500}
+		>
+		<div className="row page">
 			<div className="col-12">
 				<p id="welcome"><b>Welcome to AGA-moving.cz</b>. Within these pages you can find out more about the company, read the testimonials from a small fraction of our satisfied customers, request a quote or contact us directly to discuss your moving and relocating requirements. </p>
 			</div>
@@ -78,6 +92,7 @@ class Homepage extends React.Component {
 				</div>
 			</div>
 		</div>
+		</CSSTransition>
 	)
 }
 

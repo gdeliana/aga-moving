@@ -1,10 +1,24 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import { CSSTransition } from 'react-transition-group';
 
 class About extends React.Component {
+	state = {
+		visible : false
+	}
+	componentDidMount(){
+		this.setState({
+			visible: true
+		})
+	}
 	render = () => (
-		<div className="row">
+		<CSSTransition
+			in={this.state.visible}
+			classNames="page"
+			timeout={500}
+		>
+		<div className="row page">
 		<div className="col-12">
 			<div style={{
 			 background: "url('http://agamoving.cz/img/old_town.jpg')",
@@ -27,6 +41,7 @@ class About extends React.Component {
 			  <p>"After using AGA Moving services you'll never want to use another moving company."</p>
 			</div>
 		</div>
+		</CSSTransition>
 	)
 }
 

@@ -1,11 +1,14 @@
 import React from 'react';
 import axios from 'axios';
+import { CSSTransition } from 'react-transition-group';
 
 export default class Prices extends React.Component {
 
 	state = {
 		vehicles: [],
-		error: ""
+		error: "",
+		visible: false,
+		loading: true
 	}
 
 	componentDidMount() {
@@ -17,18 +20,30 @@ export default class Prices extends React.Component {
 			 if(res.data){
 				 this.setState({
 					 vehicles : res.data,
-					 error: false
+					 error: false,
+					 visible: true,
+					 loading: false
 				 });
 			 }
 		}).catch((error) => {
 			this.setState({
 			   vehicles : [],
-				error: "Vehicles could not be loaded"
+				error: "Vehicles could not be loaded",
+				loading: false
 			});
 		});
 	}
 
 	render() {
+		if(this.state.error) {
+			return <div>{this.state.error}</div>
+		}
+		if(this.state.loading){
+			return <div>Loading ... </div>
+		}
+		if(this.state.vehicles.length == 0){
+			return <div>Could not retreive the page</div>
+		}
 		const vehicles_prices = {};
 		const vehicles_images = {};
 		const extra_info = {};
@@ -48,15 +63,13 @@ export default class Prices extends React.Component {
 				extra_info[vehicle.name+" "+vehicle.capacity] = vehicle.extra_info;
 			}
 		}
-
-		if(this.state.vehicles.length == 0){
-			return <div>Could not retreive the page</div>
-		}
-		if(this.state.error) {
-			return <div>{this.state.error}</div>
-		}
 		return (
-			<React.Fragment>
+			<CSSTransition
+				in={this.state.visible}
+				classNames="page"
+				timeout={500}
+			>
+			<div className="page">
 				<div className="row">
 					<div className="col-12">
 						<p>Below we show you a table of our price setup.</p>
@@ -116,7 +129,8 @@ export default class Prices extends React.Component {
 						<span>The prices are calculated from the moment we meet till the job is finished.</span>
 					</div>
 				</div>
-			</React.Fragment>
+			</div>
+			</CSSTransition>
 		);
 	}
 }
