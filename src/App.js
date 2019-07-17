@@ -5,17 +5,24 @@ import appStore from './stores/appStore';
 import Header from './Header';
 import Footer from './Footer';
 import Breadcrumbs from './Breadcrumbs';
+import {withReducer} from './customFns/helpers';
 
-const BookingFormWrapper = React.lazy(() => import('./components/BookingFormWrapper'));
+const BookingFormWrapper = React.lazy(() => withReducer(appStore, {
+	"main": "reducers/mainReducer",
+	"vehicle" : "reducers/vehicleReducer",
+	"materials" : "reducers/materialsReducer"
+}, "components/BookingForm"));
 const Homepage = React.lazy(() => import('./pages/Homepage'));
-const Gallery = React.lazy(() => import('./pages/Gallery'));
+const Gallery = React.lazy(() => withReducer(appStore, {
+	"gallery":"reducers/galleryReducer"
+}, "pages/Gallery"));
 const Prices = React.lazy(() => import('./pages/Prices'));
 const About = React.lazy(() => import('./pages/About'));
 
 class App extends Component {
   render() {
     return (
-		<div onClick={this.onClickHandler} id="aga">
+		<div id="aga">
       	<div className="container">
 			<Router>
 				<Provider store={appStore}>
