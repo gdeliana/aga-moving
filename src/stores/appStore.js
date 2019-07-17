@@ -25,11 +25,18 @@ function configureAppStore() {
     appStore.replaceReducer(createReducer(appStore.asyncReducers))
   }
 
+  appStore.ejectReducers = (reducers) => {
+	  for(let name in reducers){
+		  appStore.ejectReducer(name);
+	  }
+  }
+
   // Return the modified store
   return appStore
 }
 
 function createReducer(asyncReducers) {
+	console.log(asyncReducers);
   return combineReducers({
     ...staticReducers,
     ...asyncReducers

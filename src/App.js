@@ -7,8 +7,8 @@ import Footer from './Footer';
 import Breadcrumbs from './Breadcrumbs';
 import {withReducer} from './customFns/helpers';
 
-const BookingFormWrapper = React.lazy(() => withReducer(appStore, {
-	"main": "reducers/mainReducer",
+const BookingForm = React.lazy(() => withReducer(appStore, {
+	"main": "reducers/formReducer",
 	"vehicle" : "reducers/vehicleReducer",
 	"materials" : "reducers/materialsReducer"
 }, "components/BookingForm"));
@@ -24,28 +24,28 @@ class App extends Component {
     return (
 		<div id="aga">
       	<div className="container">
-			<Router>
-				<Provider store={appStore}>
-				<Header />
-				<Breadcrumbs />
-				<div id="content" className="row">
-				<div id="topDivider"></div>
-					<div className="col-12">
+				<Router>
+					<Provider store={appStore}>
+					<Header />
+					<Breadcrumbs />
+					<div id="content" className="row">
+						<div id="topDivider"></div>
+						<div className="col-12">
 
-					<Suspense fallback={<div>Loading ...</div>}>
-						<Route path="/new/booking" component={BookingFormWrapper} />
-						<Route path="/new/gallery" component={Gallery} />
-						<Route path="/new/prices" component={Prices} />
-						<Route path="/new/about" component={About} />
-						<Route exact path="/new/" component={Homepage} />
-					</Suspense>
+							<Suspense fallback={<div>Loading ...</div>}>
+								<Route path="/new/booking" component={BookingForm} />
+								<Route path="/new/gallery" component={Gallery} />
+								<Route path="/new/prices" component={Prices} />
+								<Route path="/new/about" component={About} />
+								<Route exact path="/new/" component={Homepage} />
+							</Suspense>
 
+						</div>
+						<div id="bottomDivider"></div>
 					</div>
-				<div id="bottomDivider"></div>
-				</div>
-				<Footer />
-				</Provider>
-			</Router>
+					<Footer />
+					</Provider>
+				</Router>
       	</div>
 		</div>
     );
