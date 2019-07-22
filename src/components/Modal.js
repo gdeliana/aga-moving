@@ -3,9 +3,9 @@ import React from 'react';
 export default class Modal extends React.Component {
 	constructor (props) {
 		super(props);
-		let opened = props.opened || false;
 		this.state = {
-			opened
+			opened : props.opened || false,
+			modalCss: props.modalCss || {}
 		}
 	}
 
@@ -36,7 +36,7 @@ export default class Modal extends React.Component {
 		}
 		return (
 			<div className="modal-wrapper" style={mainStyle}>
-				<div className="custom-modal">
+				<div className="custom-modal" style={this.state.modalCss}>
 					<div onClick={this.toggle} className="close">
 						<span>X</span>
 					</div>

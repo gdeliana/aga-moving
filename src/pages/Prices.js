@@ -1,8 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import { CSSTransition } from 'react-transition-group';
+import LazyImage from '../components/LazyImage';
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, NavLink, Link } from "react-router-dom";
 
-export default class Prices extends React.Component {
+class Prices extends React.Component {
 
 	state = {
 		vehicles: [],
@@ -86,7 +89,11 @@ export default class Prices extends React.Component {
 										<th style={{textAlign: 'center'}} valign="top" key={vehicleName}>
 											<span className="vehicleName">{vehicleName} m<sup>3</sup></span><br /><br />
 											{vehicles_images[vehicleName] && vehicles_images[vehicleName].main && (
-												<img src={vehicles_images[vehicleName].main} className="img-fluid vehicleImage fit-image" />
+												<LazyImage src={vehicles_images[vehicleName].main} type="background" style={{
+													width: '80%',
+													height: '80px'
+												}} withModal/>
+
 											)}
 										</th>
 									))}
@@ -125,8 +132,15 @@ export default class Prices extends React.Component {
 					</div>
 				</div>
 				<div className="row">
-					<div className="col-12">
+					<div className="col-12 text-center">
 						<span>The prices are calculated from the moment we meet till the job is finished.</span>
+					</div>
+				</div>
+
+				<div className="row">
+					<div className="col-12 text-center">
+						<p>You can easily order online a moving date. Click the button below:</p>
+						<p><NavLink className="booking-button" to={this.props.homeUri+"/booking"}>BOOK ONLINE!</NavLink></p>
 					</div>
 				</div>
 			</div>
@@ -134,3 +148,9 @@ export default class Prices extends React.Component {
 		);
 	}
 }
+
+const mapStateToProps = (state) => ({
+	homeUri : state.app.homeUri
+});
+
+export default connect(mapStateToProps, null)(Prices);

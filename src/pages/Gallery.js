@@ -2,7 +2,7 @@ import React, {Suspense} from 'react';
 import {connect} from 'react-redux';
 import {fetchGallery, cleanGallery} from '../actions/galleryActions';
 import { CSSTransition } from 'react-transition-group';
-const Modal = React.lazy(() => import('../components/Modal'));
+import LazyImage from '../components/LazyImage';
 
 class Gallery extends React.Component {
 	state = {
@@ -47,63 +47,18 @@ class Gallery extends React.Component {
 }
 
 class GalleryImage extends React.Component {
-	state = {
-		image : null,
-		openedModal: false,
-		timeout: null,
-	}
-
-	componentDidMount = () => {
-		let t = setTimeout(() => {
-			this.setState({
-				image : this.props.url
-			});
-		}, 500);
-		this.setState({
-			timeout: t
-		});
-	}
-
-	componentWillUnmount = () => {
-		this.setState({t: null});
-	}
-
-	openImageModal = (event) => {
-		event.stopPropagation();
-		let {openedModal} = this.state;
-		this.setState({
-			openedModal : !openedModal
-		});
-	}
-
-	modalState = (opened) => {
-		this.setState({
-			openedModal: opened
-		})
-	}
-
-
 	render = () => (
 		<div style={{
 			height: "100%"
 		}} className="col-12 col-sm-6 col-md-4 col-lg-3" >
 		<div style={{
 			height: "100%"
-		}} onClick={this.openImageModal} className="gallery-image-container">
-			<img
-			src={this.state.image === null ? "http://www.agamoving.cz/loading.gif" : this.state.image}
-			style={{
+		}} className="gallery-image-container">
+			<LazyImage style={{
 				height: '140px',
 				margin: 'auto',
 				display: 'block'
-			}} className="img-fluid" alt={this.props.name} />
-			{this.state.openedModal && (
-				<Suspense fallback={<div>Loading ...</div>} >
-				<Modal propagateState={this.modalState} opened>
-					<img alt={this.props.name} src={this.props.url} className="img-fluid" />
-				</Modal>
-				</Suspense>
-			)}
+			}} withModal src={this.props.url} type="background" />
 		</div>
 		</div>
 	)
