@@ -20,6 +20,7 @@ const Gallery = React.lazy(() => withReducer(appStore, {
 }, "pages/Gallery"));
 const Prices = React.lazy(() => import('./pages/Prices'));
 const About = React.lazy(() => import('./pages/About'));
+const Packing = React.lazy(() => import('./pages/Packing'));
 
 class App extends Component {
   render() {
@@ -40,6 +41,7 @@ class App extends Component {
 								<Route path="/new/prices" component={Prices} />
 								<Route path="/new/about" component={About} />
 								<Route path="/new/testimonials" component={Testimonials} />
+								<Route path="/new/packing" component={Packing} />
 								<Route exact path="/new/" component={Homepage} />
 							</Suspense>
 
