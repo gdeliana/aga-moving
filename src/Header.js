@@ -8,7 +8,7 @@ class Header extends React.Component {
 	render () {
 		return (
 			<div className="row" id="header">
-				<div className="col-12 col-md-3 col-lg-5 justify-content-center d-flex align-items-center">
+				<div className="col-12 col-md-3 col-lg-5 justify-content-center justify-content-md-start d-flex align-items-center">
 					<div id="logo">
 						<Link to={this.props.homeUri}><img alt="AGA Moving" src="http://agamoving.cz/img/logo.png" className="img-fluid" /></Link>
 					</div>
