@@ -28,7 +28,7 @@ export const submitContactFormError = (errors) => ({
 export const submitform = () => {
 	return (dispatch, getState) => {
 		let currenState = getState();
-		let {errors, contact_name, contact_email, contact_message, captcha, PHPSESSID} = currenState.app;
+		let {errors, contact_name, contact_email, contact_message, captcha} = currenState.app;
 		let isValidForm = true;
 		let errorMessages = [];
 		let successMessages = [];
@@ -46,8 +46,7 @@ export const submitform = () => {
 					contact_name,
 					contact_email,
 					contact_message,
-					captcha,
-					PHPSESSID
+					captcha
 				};
 				let query = [];
 				for(let name in data){

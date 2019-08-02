@@ -10,7 +10,7 @@ const InputContact = (props) => (
 class ContactForm extends React.Component {
 
 	state = {
-		captchaSrc : "http://www.agamoving.cz/new/captcha.php?v="+Date.now()+"&PHPSESSID="+this.props.PHPSESSID
+		captchaSrc : "http://www.agamoving.cz/captcha.php?v="+Date.now()
 	}
 
 	onSubmit = (e) => {
@@ -22,7 +22,7 @@ class ContactForm extends React.Component {
 		e.stopPropagation();
 		e.preventDefault();
 		this.setState({
-			captchaSrc: "http://www.agamoving.cz/new/captcha.php?v="+Date.now()+"&PHPSESSID="+this.props.PHPSESSID
+			captchaSrc: "http://www.agamoving.cz/captcha.php?v="+Date.now()
 		});
 	}
 
@@ -111,8 +111,7 @@ function mapStateToProps (state, ownProps) {
 	return {
 		errors : state.app.errorMessages,
 		success : state.app.successMessages,
-		sending_message : state.app.sending_message,
-		PHPSESSID: state.app.PHPSESSID
+		sending_message : state.app.sending_message
 	};
 };
 
