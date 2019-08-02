@@ -8,3 +8,17 @@ export const withReducer = (store, reducerPaths, elementPath) => {
 	}
 	return import("../"+elementPath);
 }
+
+export function getCookie(name) {
+	let cookies = document.cookie.split(';');
+	let pairs = {};
+	for (let i in cookies){
+		let cookie = cookies[i]
+		let pair = cookie.split('=');
+		pairs[pair[0]] = pair[1] ? pair[1] : "";
+	}
+	if(pairs[name]){
+		return pairs[name];
+	}
+	return false;
+}

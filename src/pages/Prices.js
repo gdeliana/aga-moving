@@ -44,7 +44,7 @@ class Prices extends React.Component {
 		if(this.state.loading){
 			return <div>Loading ... </div>
 		}
-		if(this.state.vehicles.length == 0){
+		if(this.state.vehicles.length === 0){
 			return <div>Could not retreive the page</div>
 		}
 		const vehicles_prices = {};
