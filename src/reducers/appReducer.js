@@ -4,6 +4,7 @@ const initialState = {
 	homeUri,
 	breadcrumbNames : {
 		[homeUri.replace('/', '')] : "Home",
+		"/" : "Home",
 		'packing' : "Packing & unpacking",
 		'prices' : "Prices",
 		'about' : "About us",
