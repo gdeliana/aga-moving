@@ -10,7 +10,7 @@ const InputContact = (props) => (
 class ContactForm extends React.Component {
 
 	state = {
-		captchaSrc : "http://www.agamoving.cz/captcha.php?v="+Date.now()
+		captchaSrc : "http://www.agamoving.cz/new/captcha.php?v="+Date.now()
 	}
 
 	onSubmit = (e) => {
@@ -22,7 +22,7 @@ class ContactForm extends React.Component {
 		e.stopPropagation();
 		e.preventDefault();
 		this.setState({
-			captchaSrc: "http://www.agamoving.cz/captcha.php?v="+Date.now()
+			captchaSrc: "http://www.agamoving.cz/new/captcha.php?v="+Date.now()
 		});
 	}
 
