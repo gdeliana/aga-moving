@@ -1,5 +1,5 @@
 import appReducer from '../reducers/appReducer';
-import { createStore, applyMiddleware, combineReducers, replaceReducer } from"redux";
+import { createStore, applyMiddleware, combineReducers } from"redux";
 import thunk from 'redux-thunk';
 
 const staticReducers = {

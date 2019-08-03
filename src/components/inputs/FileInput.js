@@ -3,10 +3,6 @@ import { connect } from 'react-redux';
 import { mapStateToProps } from '../../customFns/formFns';
 
 class FileInput extends React.Component {
-  	constructor(props) {
-    	super(props);
-	}
-
 	onChange = (event) => {
 		this.props.updateform(this.props.name, event.target.files);
 	}

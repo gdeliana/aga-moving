@@ -31,7 +31,7 @@ export default class LazyImage extends React.Component {
 	}
 
 	render = () => {
-		let Loading = () => <img className="img-fluid image-img" src="http://www.agamoving.cz/loading.gif" style={this.state.css} />;
+		let Loading = () => <img className="img-fluid image-img" src="http://www.agamoving.cz/loading.gif" style={this.state.css} alt={this.props.title} />;
 		const Mdl = () => {
 			if(this.state.withModal && this.state.openedModal){
 				return (
@@ -50,7 +50,6 @@ export default class LazyImage extends React.Component {
 				return <div></div>
 			}
 		}
-		let Img = null;
 		return (
 			<React.Fragment>
 				<Mdl />

@@ -405,6 +405,19 @@ margin-bottom: 11px;
 	display: inline;
 }
 
+.breadcrumbs {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.homepage-column {
+	text-align: justify;
+}
+
+.homepage-column h4 {
+	text-align: left;
+}
+
 .gallery-image-container {
 	margin-top: 15px;
 margin-bottom: 15px;

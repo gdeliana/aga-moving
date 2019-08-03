@@ -59,6 +59,11 @@ export default class Testimonials extends React.Component {
 								</React.Fragment>
 							)
 						break;
+						default:
+						Inner = () => (
+							<div></div>
+						)
+						break;
 					}
 					return (
 						<div key={key} className="row" style={{

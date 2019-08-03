@@ -26,10 +26,9 @@ export function fetchVehicles () {
 			 responseType: 'json'
 		  })
         .then(function(res) {
-			  console.log(res);
-				if(res.data){
-					dispatch(fetchVehiclesSuccess(res.data));
-				}
+			if(res.data){
+				dispatch(fetchVehiclesSuccess(res.data));
+			}
         })
         .catch(function(error) {
 		  		dispatch(fetchVehiclesFailure(error));

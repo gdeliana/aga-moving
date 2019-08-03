@@ -28,12 +28,12 @@ class Homepage extends React.Component {
 			</div>
 		</div>
 		<div className="row">
-			<div className="col-12 col-md-4">
+			<div className="col-12 col-md-4 homepage-column">
 				<div className="row" style={{
 					marginBottom: '15px'
 				}}>
 					<div className="col-12">
-						<img src="http://agamoving.cz/images/_DSC8516.JPG" className="img-fluid" />
+						<img src="http://agamoving.cz/images/_DSC8516.JPG" alt="Agamoving" className="img-fluid" />
 					</div>
 				</div>
 
@@ -53,7 +53,7 @@ class Homepage extends React.Component {
 					</div>
 				</div>
 			</div>
-			<div className="col-12 col-md-4">
+			<div className="col-12 col-md-4 homepage-column">
 
 				<div className="row" style={{
 					marginBottom: '15px'
@@ -79,13 +79,13 @@ class Homepage extends React.Component {
 					</div>
 				</div>
 			</div>
-			<div className="col-12 col-md-4">
+			<div className="col-12 col-md-4 homepage-column">
 
 				<div className="row" style={{
 					marginBottom: '15px'
 				}}>
 					<div className="col-12">
-						<img alt="" src="http://agamoving.cz/images/foto7.jpg" className="img-fluid" />
+						<img src="http://agamoving.cz/images/foto7.jpg" alt="Moving boxes" className="img-fluid" />
 					</div>
 				</div>
 

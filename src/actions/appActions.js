@@ -1,4 +1,3 @@
-import {lazy} from 'react'
 export const HIDEMENUMOBILE = 'HIDEMENUMOBILE';
 export const TOGGLEMENUMOBILE = 'TOGGLEMENUMOBILE';
 export const SUBMITCONTACTFORMBEGIN = "SUBMITCONTACTFORMBEGIN";
@@ -31,7 +30,6 @@ export const submitform = () => {
 		let {errors, contact_name, contact_email, contact_message, captcha, sessID} = currenState.app;
 		let isValidForm = true;
 		let errorMessages = [];
-		let successMessages = [];
 		for (let fieldName in errors){
 			let invalidField = errors[fieldName];
 			if(invalidField){
@@ -63,7 +61,6 @@ export const submitform = () => {
 				  data: query,
 				  responseType: 'json'
 			  	}).then(res => {
-					console.log(res);
 					if(res.data && res.data.errors && res.data.errors.length > 0){
 					  dispatch(submitContactFormError(res.data.errors));
 				  	}else if(res.data && res.data.success && res.data.success.length > 0){

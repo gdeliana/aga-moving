@@ -57,7 +57,7 @@ class ContactForm extends React.Component {
 								margin: 'auto',
 								display: 'block',
 								marginBottom: '4px'
-							}} className="img-fluid" src={this.state.captchaSrc} />
+							}} className="img-fluid" src={this.state.captchaSrc} alt="captcha" />
 						</div>
 					</div>
 					<div className="row">

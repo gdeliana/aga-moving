@@ -1,4 +1,4 @@
-import React, {Suspense} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
 import {fetchGallery, cleanGallery} from '../actions/galleryActions';
 import { CSSTransition } from 'react-transition-group';
@@ -11,7 +11,6 @@ class Gallery extends React.Component {
 	componentDidMount() {
 		this.props.fetchGallery();
 		if(!this.props.error && !this.props.loading){
-			console.log('starting');
 			this.setState({
 				visible: true
 			})

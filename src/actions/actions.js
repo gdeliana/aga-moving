@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {serializeObject} from '../customFns/formFns';
 export const UPDATEFORM = "UPDATEFORM";
 export const VALIDATEINPUT = "VALIDATEINPUT";
 export const UPDATEVEHICLEWORKER = "UPDATEVEHICLEWORKER";

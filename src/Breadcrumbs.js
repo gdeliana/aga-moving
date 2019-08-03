@@ -7,7 +7,6 @@ class Breadcrumbs extends React.Component {
 	render() {
 		const Breadcrumb = ({ match, ...rest }) => {
 			let uriName = match.url.replace(/^\/|\/$|new\//g,'');
-			console.log(uriName);
 			uriName = (uriName === '') ? '/' : uriName;
 			const name = this.props.breadcrumbNames[uriName] || uriName || match.url;
 			return (
