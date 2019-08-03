@@ -1,7 +1,9 @@
+import {getCookie} from '../customFns/helpers';
 const homeUri = "/new";
 const initialState = {
 	MenuMobileOpen : false,
 	homeUri,
+	sessID: getCookie('PHPSESSID'),
 	breadcrumbNames : {
 		[homeUri.replace('/', '')] : "Home",
 		"/" : "Home",
