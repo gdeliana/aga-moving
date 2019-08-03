@@ -19,11 +19,19 @@ class Homepage extends React.Component {
 			timeout={500}
 		>
 		<div className="row page">
-			<div className="col-12">
+		<div className="col-12">
+		<div className="row">
+			<div className="col-12" style={{
+				marginBottom: '15px'
+			}}>
 				<p id="welcome"><b>Welcome to AGA-moving.cz</b>. Within these pages you can find out more about the company, read the testimonials from a small fraction of our satisfied customers, request a quote or contact us directly to discuss your moving and relocating requirements. </p>
 			</div>
+		</div>
+		<div className="row">
 			<div className="col-12 col-md-4">
-				<div className="row">
+				<div className="row" style={{
+					marginBottom: '15px'
+				}}>
 					<div className="col-12">
 						<img src="http://agamoving.cz/images/_DSC8516.JPG" className="img-fluid" />
 					</div>
@@ -31,7 +39,7 @@ class Homepage extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Link to={this.props.homeUri+"/booking"}>Local & International Moves</Link>
+						<h4><Link to={this.props.homeUri+"/booking"}>Local & International Moves</Link></h4>
 					</div>
 				</div>
 
@@ -47,7 +55,9 @@ class Homepage extends React.Component {
 			</div>
 			<div className="col-12 col-md-4">
 
-				<div className="row">
+				<div className="row" style={{
+					marginBottom: '15px'
+				}}>
 					<div className="col-12">
 						<img src="http://agamoving.cz/img/moving_box.jpg" className="img-fluid" />
 					</div>
@@ -55,7 +65,7 @@ class Homepage extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Link to={this.props.homeUri+"/packing"}>Moving Boxes & Packaging Supplies</Link>
+						<h4><Link to={this.props.homeUri+"/packing"}>Moving Boxes & Packaging Supplies</Link></h4>
 					</div>
 				</div>
 
@@ -71,7 +81,9 @@ class Homepage extends React.Component {
 			</div>
 			<div className="col-12 col-md-4">
 
-				<div className="row">
+				<div className="row" style={{
+					marginBottom: '15px'
+				}}>
 					<div className="col-12">
 						<img alt="" src="http://agamoving.cz/images/foto7.jpg" className="img-fluid" />
 					</div>
@@ -79,7 +91,7 @@ class Homepage extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<Link to={this.props.homeUri+"/booking"}>Moving Boxes & Packaging Supplies</Link>
+						<h4><Link to={this.props.homeUri+"/booking"}>Moving Boxes & Packaging Supplies</Link></h4>
 					</div>
 				</div>
 
@@ -91,6 +103,8 @@ class Homepage extends React.Component {
 					</div>
 				</div>
 			</div>
+		</div>
+		</div>
 		</div>
 		</CSSTransition>
 	)

@@ -6,7 +6,8 @@ class Breadcrumbs extends React.Component {
 
 	render() {
 		const Breadcrumb = ({ match, ...rest }) => {
-			let uriName = match.url.replace(/^\/|\/$/g,'');
+			let uriName = match.url.replace(/^\/|\/$|new\//g,'');
+			console.log(uriName);
 			uriName = (uriName === '') ? '/' : uriName;
 			const name = this.props.breadcrumbNames[uriName] || uriName || match.url;
 			return (
@@ -30,7 +31,8 @@ class Breadcrumbs extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-	breadcrumbNames : state.app.breadcrumbNames
+	breadcrumbNames : state.app.breadcrumbNames,
+	homeUri : state.app.homeUri
 });
 
 export default connect(mapStateToProps, null)(Breadcrumbs);

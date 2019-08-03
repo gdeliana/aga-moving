@@ -1,4 +1,5 @@
 import React from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 export default class Modal extends React.Component {
 	constructor (props) {
@@ -31,11 +32,11 @@ export default class Modal extends React.Component {
 	}
 
 	render = () => {
-		let mainStyle = {
-			display: ((this.state.opened) ? "flex" : "none")
-		}
 		return (
-			<div className="modal-wrapper" style={mainStyle}>
+			<CSSTransition in={this.state.opened} timeout={1000} classNames="modal-anim" appear>
+			<div className="modal-wrapper" style={{
+				display: 'flex'
+			}}>
 				<div className="custom-modal" style={this.state.modalCss}>
 					<div onClick={this.toggle} className="close">
 						<span>X</span>
@@ -52,6 +53,7 @@ export default class Modal extends React.Component {
 					)}
 				</div>
 			</div>
+			</CSSTransition>
 		);
 	}
 }

@@ -33,7 +33,8 @@ class Footer extends React.Component {
 				<img style={{
 					maxWidth: '320px',
 					margin: 'auto',
-					display: 'block'
+					display: 'block',
+					width: '90%'
 				}} className="img-fluid" src="http://agamoving.cz/img/blank_europe_map.gif" />
 			</div>
 		);

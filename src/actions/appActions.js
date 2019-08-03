@@ -46,7 +46,8 @@ export const submitform = () => {
 					contact_name,
 					contact_email,
 					contact_message,
-					captcha
+					captcha,
+					sessID
 				};
 				let query = [];
 				for(let name in data){
@@ -58,7 +59,7 @@ export const submitform = () => {
 				query = query.join('&');
 				axios.request({
 				  method: 'post',
-				  url: 'http://www.agamoving.cz/api_aga/contact_form.php?sessID='+sessID,
+				  url: 'http://www.agamoving.cz/api_aga/contact_form.php',
 				  data: query,
 				  responseType: 'json'
 			  	}).then(res => {

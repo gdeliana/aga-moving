@@ -234,12 +234,12 @@ object-fit: contain;
 	padding: 15px 16px 13px;
 background-color: greenyellow;
 border-radius: 100%;
-margin-right: 10px;
-margin-bottom: 14px;
+margin-right: 0px;
+margin-bottom: 0px;
 box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 position: absolute;
-right: 0px;
-bottom:0px;
+right: 30px;
+bottom:30px;
 }
 
 #welcome::first-letter {
@@ -411,6 +411,16 @@ margin-bottom: 15px;
 border: 1px solid black;
 padding: 15px;
 cursor: hand; cursor: pointer;
+-webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+transition: all 200ms ease-in;
+}
+
+.gallery-image-container:hover {
+	-webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
 }
 
 .page-enter {
@@ -436,6 +446,21 @@ cursor: hand; cursor: pointer;
 	background-size: contain;
 	margin: auto;
 	background-repeat: no-repeat;
+}
+
+.modal-anim {
+  opacity: 0;
+}
+.modal-anim-enter-active, .modal-anim-appear-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.modal-anim-exit, .modal-anim-appear, .modal-anim-appear-done {
+  opacity: 1;
+}
+.modal-anim-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
 }
 
 @media screen and (max-width: 767px){
