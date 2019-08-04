@@ -128,7 +128,7 @@ class PackingMaterialImage extends React.Component {
 				</Modal>
 				</Suspense>
 			)}
-			<span onClick={this.openImageModal} className="zoom-image">Zoom+</span>
+			//<span onClick={this.openImageModal} className="zoom-image">Zoom+</span>
 		</div>
 	)
 }
