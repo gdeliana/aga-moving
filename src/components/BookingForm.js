@@ -211,6 +211,14 @@ class BookingForm extends React.Component {
 					</div>
 				</div>
 
+				{this.props.sending_message && (
+					<div className="row">
+						<div className="col-12">
+							<span>Sending request ... please wait.</span>
+						</div>
+					</div>
+				)}
+
 				<div className="row form-group">
 					<div className="col-12">
 						{this.props.errors && this.props.errors.map((error, key) => (
@@ -236,7 +244,8 @@ function mapStateToProps (state, ownProps) {
 	return {
 		errors : state.main.errorMessages,
 		success : state.main.successMessages,
-		show_materials : state.main.packing_materials_switch
+		show_materials : state.main.packing_materials_switch,
+		sending_message : state.main.sending_message
 	};
 };
 
