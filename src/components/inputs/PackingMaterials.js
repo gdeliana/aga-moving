@@ -86,9 +86,7 @@ class PackingMaterialImage extends React.Component {
 	}
 
 	componentWillUnmount() {
-		this.setState({
-			t: clearTimeout(this.state.t)
-		})
+		clearTimeout(this.state.t);
 	}
 
 	componentDidMount = () => {
