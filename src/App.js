@@ -1,11 +1,12 @@
 import React, { Component, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Provider } from "react-redux";
 import appStore from './stores/appStore';
 import Header from './Header';
 import Footer from './Footer';
 import Breadcrumbs from './Breadcrumbs';
 import {withReducer} from './customFns/helpers';
+import {hideMenuMobile} from './actions/appActions';
+import {connect} from 'react-redux';
 
 const BookingForm = React.lazy(() => withReducer(appStore, {
 	"main": "reducers/formReducer",
@@ -23,12 +24,14 @@ const About = React.lazy(() => import('./pages/About'));
 const Packing = React.lazy(() => import('./pages/Packing'));
 
 class App extends Component {
+	onClickHandler = () => {
+		this.props.hideMenuMobile();
+	}
   render() {
     return (
-		<div id="aga">
+		<div onClick={this.onClickHandler} id="aga">
       	<div className="container">
 				<Router>
-					<Provider store={appStore}>
 					<Header />
 					<Breadcrumbs />
 					<div id="content" className="row">
@@ -49,11 +52,15 @@ class App extends Component {
 						<div id="bottomDivider"></div>
 					</div>
 					<Footer />
-					</Provider>
 				</Router>
       	</div>
 		</div>
     );
   }
 }
-export default App;
+
+const mapDispatchToProps = {
+	hideMenuMobile
+}
+
+export default connect(null, mapDispatchToProps)(App);

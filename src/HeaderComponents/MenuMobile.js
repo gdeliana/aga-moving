@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { toggleMenuMobile } from '../actions/appActions';
+import { toggleMenuMobile, scrollToTop } from '../actions/appActions';
 import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
@@ -9,6 +9,7 @@ class MenuMobile extends React.Component {
 		event.stopPropagation();
 		this.props.toggleMenuMobile();
 	}
+
 	render = () => (
 		<div onClick={(event) => event.stopPropagation()} className={classNames({
 			MenuMobile : true,
@@ -20,14 +21,14 @@ class MenuMobile extends React.Component {
 						let children = null;
 						if(menuItem.children){
 							children = menuItem.children.map((child, key1) => (
-								<li key={key1}>
+								<li onClick={this.props.scrollToTop} key={key1}>
 									<NavLink exact to={child.link} >{child.name}</NavLink>
 								</li>
 							));
 							children = <ul className="sub-menu">{children}</ul>;
 						}
 						return (
-							<li key={key}>
+							<li onClick={this.props.scrollToTop} key={key}>
 								<NavLink exact to={menuItem.link} >{menuItem.name}</NavLink>
 								{children && (children)}
 							</li>
@@ -53,7 +54,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-	toggleMenuMobile
+	toggleMenuMobile,
+	scrollToTop
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MenuMobile);

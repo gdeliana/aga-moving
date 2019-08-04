@@ -3,10 +3,15 @@ export const TOGGLEMENUMOBILE = 'TOGGLEMENUMOBILE';
 export const SUBMITCONTACTFORMBEGIN = "SUBMITCONTACTFORMBEGIN";
 export const SUBMITCONTACTFORMSUCCESS = "SUBMITCONTACTFORMSUCCESS";
 export const SUBMITCONTACTFORMERROR = "SUBMITCONTACTFORMERROR";
+export const SCROLLTOTOP = "SCROLLTOTOP";
 
 export const hideMenuMobile = () => ({
 	type: HIDEMENUMOBILE
 });
+
+export const scrollToTop = () => ({
+	type: SCROLLTOTOP
+})
 
 export const toggleMenuMobile = () => ({
 	type: TOGGLEMENUMOBILE

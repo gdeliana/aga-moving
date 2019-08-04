@@ -90,6 +90,9 @@ export default function appReducer (state = initialState, action) {
 				successMessages : action.response,
 				sending_message : false,
 			});
+		case 'SCROLLTOTOP':
+			document.getElementById('header').scrollIntoView(true);
+			return state;
 		default:
 			return state;
 	}

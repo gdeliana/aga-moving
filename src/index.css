@@ -270,7 +270,7 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 10
 	background-color: transparent;
 }
 
-#logo {
+.logo {
 	max-width: 200px;
 }
 
@@ -278,6 +278,7 @@ background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 10
 	border-bottom: 2px solid red;
 
 padding-bottom: 3px;
+text-align: center;
 }
 
 #header .navBar > li {
@@ -476,12 +477,18 @@ box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
   transition: opacity 200ms;
 }
 
+@media screen and (min-width: 992px) {
+	.vehicle_worker_option .innerWrapper {
+		min-height: 318px;
+	}
+}
+
 @media screen and (max-width: 767px){
-	#logo {
+	.logo {
 		max-width: 235px;
 		margin: 17px auto;
 	}
-	#logo img {
+	.logo img {
 
 		display: block;
 	}
