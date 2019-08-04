@@ -155,25 +155,25 @@ class BookingForm extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<InputBooking type="checkbox" name="packing_service" label="I need packing and unpacking service:" options={countries} />
+						<InputBooking type="checkbox" name="packing_service" label="I need packing and unpacking service:" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<InputBooking type="checkbox" name="heavy_products" label="Do you have items heavier than 100Kg?" options={countries} />
+						<InputBooking type="checkbox" name="heavy_products" label="Do you have items heavier than 100Kg?" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<InputBooking type="checkbox" name="appointment" label="If you would like a fixed price please check this box to arrange an appointment (Free of charge)" options={countries} />
+						<InputBooking type="checkbox" name="appointment" label="If you would like a fixed price please check this box to arrange an appointment (Free of charge)" />
 					</div>
 				</div>
 
 				<div className="row">
 					<div className="col-12">
-						<InputBooking type="checkbox" name="packing_materials_switch" label="I need packing and unpacking service:" options={countries} />
+						<InputBooking type="checkbox" name="packing_materials_switch" label="I need packing materials:" />
 					</div>
 				</div>
 
