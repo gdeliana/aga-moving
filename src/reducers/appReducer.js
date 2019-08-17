@@ -44,7 +44,8 @@ const initialState = {
 	'errors' : null,
 	'errorMessages' : [],
 	'successMessages' : [],
-	sending_message : false
+	sending_message : false,
+	loading : false
 };
 export default function appReducer (state = initialState, action) {
 	switch (action.type) {
@@ -75,6 +76,7 @@ export default function appReducer (state = initialState, action) {
 				errorMessages : [],
 				successMessages : [],
 				sending_message: true,
+				loading: true
 			});
 		case 'SUBMITCONTACTFORMERROR':
 			return Object.assign({}, state, {
@@ -82,6 +84,7 @@ export default function appReducer (state = initialState, action) {
 				errorMessages : action.errors,
 				successMessages : [],
 				sending_message: false,
+				loading: false
 			});
 		case 'SUBMITCONTACTFORMSUCCESS':
 			return Object.assign({}, state, {
@@ -89,6 +92,7 @@ export default function appReducer (state = initialState, action) {
 				errorMessages : [],
 				successMessages : action.response,
 				sending_message : false,
+				loading: false
 			});
 		case 'SCROLLTOTOP':
 			document.getElementById('header').scrollIntoView(true);

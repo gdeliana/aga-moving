@@ -3,6 +3,7 @@ import HeaderSection from './HeaderSection';
 import { submitform } from '../actions/actions';
 import { connect } from "react-redux";
 import Input from './Input';
+import Loader from './Loader.js';
 
 import countries from '../countries.json';
 
@@ -25,6 +26,7 @@ class BookingForm extends React.Component {
 		});
 		return (
 			<div className="col-12">
+			<Loader visible={this.props.loader} />
 			<form id="booking-form" onSubmit={this.onSubmit} encType="multipart/form-data">
 				<div className="row">
 					<div className="col-12">
@@ -245,7 +247,8 @@ function mapStateToProps (state, ownProps) {
 		errors : state.main.errorMessages,
 		success : state.main.successMessages,
 		show_materials : state.main.packing_materials_switch,
-		sending_message : state.main.sending_message
+		sending_message : state.main.sending_message,
+		loader: state.main.loading
 	};
 };
 

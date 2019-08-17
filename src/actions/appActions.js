@@ -68,8 +68,10 @@ export const submitform = () => {
 			  	}).then(res => {
 					if(res.data && res.data.errors && res.data.errors.length > 0){
 					  dispatch(submitContactFormError(res.data.errors));
-				  	}else if(res.data && res.data.success && res.data.success.length > 0){
-					  dispatch(submitContactFormSuccess(res.data.success));
+			  	}else if(res.data && res.data.success && res.data.success.length > 0){
+					  setTimeout(() => {
+							dispatch(submitContactFormSuccess(res.data.success));
+						}, 6000);
 				  }else{
 					  dispatch(submitContactFormError(["There was a problem sending the message."]));
 				  }

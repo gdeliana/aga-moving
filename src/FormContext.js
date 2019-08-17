@@ -31,5 +31,6 @@ export default {
 	'errors' : null,
 	'errorMessages' : [],
 	'successMessages' : [],
-	sending_message: false
+	sending_message: false,
+	loading: false
 }

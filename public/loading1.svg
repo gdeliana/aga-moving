@@ -1,0 +1,32 @@
+<svg width="150mm" height="150mm" version="1.1" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <marker id="marker5458" overflow="visible" orient="auto">
+   <path transform="matrix(-.2 0 0 -.2 -1.2 0)" d="m0 0 5-5-17.5 5 17.5 5z" fill-rule="evenodd" stroke="#000" stroke-width="1pt"/>
+  </marker>
+  <marker id="Arrow1Send" overflow="visible" orient="auto">
+   <path transform="matrix(-.2 0 0 -.2 -1.2 0)" d="m0 0 5-5-17.5 5 17.5 5z" fill-rule="evenodd" stroke="#000" stroke-width="1pt"/>
+  </marker>
+  <filter id="filter6595" y="-.25" height="1.5" color-interpolation-filters="sRGB">
+   <feGaussianBlur result="result6" stdDeviation="5"/>
+   <feComposite in="SourceGraphic" in2="result6" operator="atop" result="result8"/>
+   <feComposite in="result8" in2="SourceAlpha" result="result9"/>
+   <feColorMatrix result="result10" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0 "/>
+   <feBlend in="result10" in2="result6"/>
+  </filter>
+  <filter id="filter6645" color-interpolation-filters="sRGB">
+   <feOffset dx="3" dy="3"/>
+   <feGaussianBlur result="blur" stdDeviation="3"/>
+   <feFlood flood-color="rgb(0,0,0)" result="flood"/>
+   <feComposite in="flood" in2="SourceGraphic" operator="in" result="composite"/>
+   <feBlend in="blur" in2="composite"/>
+  </filter>
+ </defs>
+ <g transform="translate(-44.139 -58.762)" fill="none">
+  <g>
+   <circle cx="118.99" cy="137.26" r="60" filter="url(#filter6595)" opacity=".893" stroke="#e20002" stroke-dasharray="68.76, 68.76000000000000512" stroke-width="2.865"/>
+   <path d="m154.96 135.7a37.042 37.042 0 0 1-25.647 35.245 37.042 37.042 0 0 1-41.426-13.561 37.042 37.042 0 0 1 0.15988-43.589 37.042 37.042 0 0 1 41.524-13.257" filter="url(#filter6645)" opacity=".982" stroke="#2b6c00" stroke-dasharray="34.38, 2.86500000000000021" stroke-width="2.865"/>
+   <path d="m118.4 135.94v-22.53" marker-end="url(#marker5458)" stroke="#000" stroke-linecap="square" stroke-width="3.365"/>
+  </g>
+  <path d="m118.4 135.94h25.885" marker-end="url(#Arrow1Send)" stroke="#000" stroke-linecap="square" stroke-linejoin="round" stroke-miterlimit="3.2" stroke-width="2.265" style="paint-order:normal"/>
+ </g>
+</svg>

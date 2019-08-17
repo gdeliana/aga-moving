@@ -37,21 +37,24 @@ export default function formReducer (state = initialState, action) {
 				errorMessages: [],
 				successMessages: [],
 				valid: null,
-				sending_message: true
+				sending_message: true,
+				loading: true
 			});
 		case 'SUBMITFORMSUCCESS':
 			return Object.assign({}, state, {
 				errorMessages: [],
 				successMessages: action.success,
 				valid: true,
-				sending_message: false
+				sending_message: false,
+				loading: false
 			});
 		case 'SUBMITFORMERROR':
 			return Object.assign({}, state, {
 				errorMessages: action.error,
 				successMessages: [],
 				valid: false,
-				sending_message: false
+				sending_message: false,
+				loading : false
 			});
 		case 'UPDATEMATERIALQUANTITY':
 			const current = state.packing_materials;

@@ -51,7 +51,9 @@ export const submitform = () => {
 			responseType: 'text'
 		}).then((res) => {
 			if(res.data && res.data.success && res.data.success.length > 0){
-				dispatch(submitformsuccess(res.data.success));
+				setTimeout(() => {
+					dispatch(submitformsuccess(res.data.success));
+				}, 6000);
 			}else if(res.data && res.data.errors && res.data.errors.length > 0){
 				dispatch(submitformerror(res.data.errors));
 			}else{

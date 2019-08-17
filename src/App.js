@@ -7,6 +7,7 @@ import Breadcrumbs from './Breadcrumbs';
 import {withReducer} from './customFns/helpers';
 import {hideMenuMobile} from './actions/appActions';
 import {connect} from 'react-redux';
+import Loader from './components/Loader.js';
 
 const BookingForm = React.lazy(() => withReducer(appStore, {
 	"main": "reducers/formReducer",
@@ -30,6 +31,7 @@ class App extends Component {
   render() {
     return (
 		<div onClick={this.onClickHandler} id="aga">
+				<Loader visible={this.props.loader} />
       	<div className="container">
 				<Router>
 					<Header />
@@ -63,4 +65,10 @@ const mapDispatchToProps = {
 	hideMenuMobile
 }
 
-export default connect(null, mapDispatchToProps)(App);
+function mapStateToProps (state, ownProps) {
+	return {
+		loader : state.app.loading
+	}
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
