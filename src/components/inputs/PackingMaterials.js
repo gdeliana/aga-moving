@@ -42,7 +42,7 @@ class PackingMaterial extends React.Component {
 
 	render () {
 		return (
-			<div className="col-sm-6 col-md-4 col-6 packing_material">
+			<div className="col-sm-12 col-md-4 col-6 packing_material">
 				<div className="wrapper">
 					<div className="row">
 						<PackingMaterialImage name={this.props.name} image={this.props.image} />
@@ -59,7 +59,7 @@ class PackingMaterial extends React.Component {
 					</div>
 					<div className="row">
 						<div className="col-12">
-							{this.props.description !== '' ? this.props.description : "no description"}
+							{this.props.description !== '' ? this.props.description : ""}
 						</div>
 					</div>
 					<div className="row">
@@ -128,7 +128,7 @@ class PackingMaterialImage extends React.Component {
 				</Modal>
 				</Suspense>
 			)}
-			//<span onClick={this.openImageModal} className="zoom-image">Zoom+</span>
+			{/*<span onClick={this.openImageModal} className="zoom-image">Zoom+</span>*/}
 		</div>
 	)
 }
