@@ -1,5 +1,5 @@
 import {getCookie} from '../customFns/helpers';
-const homeUri = "/new";
+const homeUri = "/";
 const initialState = {
 	MenuMobileOpen : false,
 	homeUri,
