@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
@@ -59,7 +59,7 @@ class Homepage extends React.Component {
 					marginBottom: '15px'
 				}}>
 					<div className="col-12">
-						<img src="http://agamoving.cz/img/moving_box.jpg" className="img-fluid" />
+						<img src="http://agamoving.cz/img/moving_box.jpg" alt="Moving boxes" className="img-fluid" />
 					</div>
 				</div>
 

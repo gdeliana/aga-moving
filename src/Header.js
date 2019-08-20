@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBarRouter from './HeaderComponents/NavBarRouter';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, NavLink, Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 
 class Header extends React.Component {
