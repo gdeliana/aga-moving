@@ -140,7 +140,7 @@ class Prices extends React.Component {
 				<div className="row">
 					<div className="col-12 text-center">
 						<p>You can easily order online a moving date. Click the button below:</p>
-						<p><NavLink className="booking-button" to={this.props.homeUri+"/booking"}>BOOK ONLINE!</NavLink></p>
+						<p><NavLink className="booking-button" to={this.props.homeUri+"booking"}>BOOK ONLINE!</NavLink></p>
 					</div>
 				</div>
 			</div>

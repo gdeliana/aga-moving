@@ -39,7 +39,7 @@ class Homepage extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<h4><Link to={this.props.homeUri+"/booking"}>Local & International Moves</Link></h4>
+						<h4><Link to={this.props.homeUri+"booking"}>Local & International Moves</Link></h4>
 					</div>
 				</div>
 
@@ -65,7 +65,7 @@ class Homepage extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<h4><Link to={this.props.homeUri+"/packing"}>Moving Boxes & Packaging Supplies</Link></h4>
+						<h4><Link to={this.props.homeUri+"packing"}>Moving Boxes & Packaging Supplies</Link></h4>
 					</div>
 				</div>
 
@@ -91,7 +91,7 @@ class Homepage extends React.Component {
 
 				<div className="row">
 					<div className="col-12">
-						<h4><Link to={this.props.homeUri+"/booking"}>Moving Boxes & Packaging Supplies</Link></h4>
+						<h4><Link to={this.props.homeUri+"booking"}>Moving Boxes & Packaging Supplies</Link></h4>
 					</div>
 				</div>
 

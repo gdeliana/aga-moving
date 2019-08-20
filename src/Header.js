@@ -26,7 +26,7 @@ class Header extends React.Component {
 						<div className="col-12 col-md-6 col-lg-12" style={{
 							textAlign: 'center'
 						}}>
-							<NavLink className="booking-button float-md-right" to={this.props.homeUri+"/booking"}>BOOK ONLINE!</NavLink>
+							<NavLink className="booking-button float-md-right" to={this.props.homeUri+"booking"}>BOOK ONLINE!</NavLink>
 						</div>
 					</div>
 					{window.innerWidth > 767 && (
