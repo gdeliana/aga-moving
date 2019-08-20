@@ -21,23 +21,23 @@ const initialState = {
 		},
 		{
 			name : "Packing & unpacking",
-			link : homeUri + "/packing"
+			link : homeUri + "packing"
 		},
 		{
 			name : "Prices",
-			link : homeUri + "/prices"
+			link : homeUri + "prices"
 		},
 		{
 			name : "About us",
-			link : homeUri + "/about"
+			link : homeUri + "about"
 		},
 		{
 			name : "Gallery",
-			link : homeUri + "/gallery"
+			link : homeUri + "gallery"
 		},
 		{
 			name : "Testimonials",
-			link : homeUri + "/testimonials"
+			link : homeUri + "testimonials"
 		}
 	],
 	'valid' : true,
