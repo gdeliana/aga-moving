@@ -41,13 +41,13 @@ class App extends Component {
 						<div className="col-12">
 
 							<Suspense fallback={<div>Loading ...</div>}>
-								<Route path="/new/booking" component={BookingForm} />
-								<Route path="/new/gallery" component={Gallery} />
-								<Route path="/new/prices" component={Prices} />
-								<Route path="/new/about" component={About} />
-								<Route path="/new/testimonials" component={Testimonials} />
-								<Route path="/new/packing" component={Packing} />
-								<Route exact path="/new/" component={Homepage} />
+								<Route path={this.props.homeUri+'booking'} component={BookingForm} />
+								<Route path={this.props.homeUri+'gallery'} component={Gallery} />
+								<Route path={this.props.homeUri+'prices'} component={Prices} />
+								<Route path={this.props.homeUri+'about'} component={About} />
+								<Route path={this.props.homeUri+'testimonials'} component={Testimonials} />
+								<Route path={this.props.homeUri+'packing'} component={Packing} />
+								<Route exact path={this.props.homeUri} component={Homepage} />
 							</Suspense>
 
 						</div>
@@ -66,8 +66,10 @@ const mapDispatchToProps = {
 }
 
 function mapStateToProps (state, ownProps) {
+	console.log(state);
 	return {
-		loader : state.app.loading
+		loader : state.app.loading,
+		homeUri : state.app.homeUri
 	}
 }
 
