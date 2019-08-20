@@ -66,7 +66,6 @@ const mapDispatchToProps = {
 }
 
 function mapStateToProps (state, ownProps) {
-	console.log(state);
 	return {
 		loader : state.app.loading,
 		homeUri : state.app.homeUri
