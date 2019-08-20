@@ -3,7 +3,7 @@ import axios from 'axios';
 import { CSSTransition } from 'react-transition-group';
 import LazyImage from '../components/LazyImage';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router, Route, NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class Prices extends React.Component {
 

@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { toggleMenuMobile, scrollToTop } from '../actions/appActions';
 import {connect} from 'react-redux';
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 class MenuMobile extends React.Component {
 	onClickHandler = (event) => {
