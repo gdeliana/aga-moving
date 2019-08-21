@@ -33,7 +33,7 @@ class Homepage extends React.Component {
 					marginBottom: '15px'
 				}}>
 					<div className="col-12">
-						<img src="http://agamoving.cz/images/_DSC8516.JPG" alt="Agamoving" className="img-fluid" />
+						<img src="http://agamoving.cz/img/DSC8516_home.jpg" alt="Agamoving" className="img-fluid" />
 					</div>
 				</div>
 
@@ -59,7 +59,7 @@ class Homepage extends React.Component {
 					marginBottom: '15px'
 				}}>
 					<div className="col-12">
-						<img src="http://agamoving.cz/img/moving_box.jpg" alt="Moving boxes" className="img-fluid" />
+						<img src="http://agamoving.cz/img/moving_box_home.jpg" alt="Moving boxes" className="img-fluid" />
 					</div>
 				</div>
 

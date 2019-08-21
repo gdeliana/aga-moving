@@ -10,7 +10,7 @@ const initialState = {
 		'packing' : "Packing & unpacking",
 		'prices' : "Prices",
 		'about' : "About us",
-		'gallery' : "Gallery",
+		'photogallery' : "Gallery",
 		'testimonials' : "Testimonials",
 		'booking' : "Booking page"
 	},
@@ -33,7 +33,7 @@ const initialState = {
 		},
 		{
 			name : "Gallery",
-			link : homeUri + "gallery"
+			link : homeUri + "photogallery"
 		},
 		{
 			name : "Testimonials",

@@ -35,7 +35,7 @@ class Footer extends React.Component {
 					margin: 'auto',
 					display: 'block',
 					width: '90%'
-				}} className="img-fluid" src="http://agamoving.cz/img/blank_europe_map.gif" alt="Europe map" />
+				}} className="img-fluid" src="http://agamoving.cz/img/blank_europe_map.jpg" alt="Europe map" />
 			</div>
 		);
 		return (

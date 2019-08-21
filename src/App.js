@@ -42,7 +42,7 @@ class App extends Component {
 
 							<Suspense fallback={<div>Loading ...</div>}>
 								<Route path={this.props.homeUri+'booking'} component={BookingForm} />
-								<Route path={this.props.homeUri+'gallery'} component={Gallery} />
+								<Route path={this.props.homeUri+'photogallery'} component={Gallery} />
 								<Route path={this.props.homeUri+'prices'} component={Prices} />
 								<Route path={this.props.homeUri+'about'} component={About} />
 								<Route path={this.props.homeUri+'testimonials'} component={Testimonials} />
