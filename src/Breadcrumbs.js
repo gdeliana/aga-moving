@@ -7,16 +7,23 @@ class Breadcrumbs extends React.Component {
 	render() {
 		const Breadcrumb = ({ match, ...rest }) => {
 			let uriName = match.url.replace(/^\/|\/$|new\//g,'');
-			uriName = (uriName === '') ? '/' : uriName;
-			const name = this.props.breadcrumbNames[uriName] || uriName || match.url;
-			return (
-				<React.Fragment>
-			      <Link to={match.url || ''} className={match.isExact ? 'breadcrumb active' : 'breadcrumb'}>
-			          {name}
-			      </Link>
-			      <Route path={`${match.url}/:path`} component={Breadcrumb} />
-			  	</React.Fragment>
+			uriName = (uriName === '') ? 'home' : uriName;
+			console.log(uriName);
+			const name = this.props.breadcrumbNames[uriName] || false;
+
+			if(name){
+				return (
+					<React.Fragment>
+				      <Link to={match.url || ''} className={match.isExact ? 'breadcrumb active' : 'breadcrumb'}>
+				          {name}
+				      </Link>
+				      <Route path={`${match.url}/:path`} component={Breadcrumb} />
+				  	</React.Fragment>
 				)
+			}else{
+				return <div />;
+			}
+
 		}
 
 		return (

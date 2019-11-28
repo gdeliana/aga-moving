@@ -5,8 +5,7 @@ const initialState = {
 	homeUri,
 	sessID: getCookie('PHPSESSID'),
 	breadcrumbNames : {
-		[homeUri.replace('/', '')] : "Home",
-		"/" : "Home",
+		"home" : "Home",
 		'packing' : "Packing & unpacking",
 		'prices' : "Prices",
 		'about' : "About us",

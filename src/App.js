@@ -24,6 +24,7 @@ const Prices = React.lazy(() => import('./pages/Prices'));
 const About = React.lazy(() => import('./pages/About'));
 const Packing = React.lazy(() => import('./pages/Packing'));
 
+
 class App extends Component {
 	onClickHandler = () => {
 		this.props.hideMenuMobile();
@@ -48,6 +49,7 @@ class App extends Component {
 								<Route path={this.props.homeUri+'testimonials'} component={Testimonials} />
 								<Route path={this.props.homeUri+'packing'} component={Packing} />
 								<Route exact path={this.props.homeUri} component={Homepage} />
+								<Route path='*' exact component={()=>(<span>Page not found</span>)} />
 							</Suspense>
 
 						</div>
