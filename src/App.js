@@ -1,5 +1,5 @@
 import React, { Component, Suspense } from 'react';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import appStore from './stores/appStore';
 import Header from './Header';
 import Footer from './Footer';
@@ -42,14 +42,16 @@ class App extends Component {
 						<div className="col-12">
 
 							<Suspense fallback={<div>Loading ...</div>}>
-								<Route path={this.props.homeUri+'booking'} component={BookingForm} />
-								<Route path={this.props.homeUri+'photogallery'} component={Gallery} />
-								<Route path={this.props.homeUri+'prices'} component={Prices} />
-								<Route path={this.props.homeUri+'about'} component={About} />
-								<Route path={this.props.homeUri+'testimonials'} component={Testimonials} />
-								<Route path={this.props.homeUri+'packing'} component={Packing} />
-								<Route exact path={this.props.homeUri} component={Homepage} />
-								<Route path='*' exact component={()=>(<span>Page not found</span>)} />
+								<Switch>
+									<Route path={this.props.homeUri+'booking'} component={BookingForm} />
+									<Route path={this.props.homeUri+'photogallery'} component={Gallery} />
+									<Route path={this.props.homeUri+'prices'} component={Prices} />
+									<Route path={this.props.homeUri+'about'} component={About} />
+									<Route path={this.props.homeUri+'testimonials'} component={Testimonials} />
+									<Route path={this.props.homeUri+'packing'} component={Packing} />
+									<Route exact path={this.props.homeUri} component={Homepage} />
+									<Route path='*' exact component={()=>(<span>Page not found</span>)} />
+								</Switch>
 							</Suspense>
 
 						</div>

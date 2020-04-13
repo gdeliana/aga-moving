@@ -10,6 +10,12 @@ class MenuMobile extends React.Component {
 		this.props.toggleMenuMobile();
 	}
 
+	linkClickHandler = (event) => {
+		event.stopPropagation();
+		this.props.scrollToTop();
+		this.props.toggleMenuMobile();
+	}
+
 	render = () => (
 		<div onClick={(event) => event.stopPropagation()} className={classNames({
 			MenuMobile : true,
@@ -21,14 +27,14 @@ class MenuMobile extends React.Component {
 						let children = null;
 						if(menuItem.children){
 							children = menuItem.children.map((child, key1) => (
-								<li onClick={this.props.scrollToTop} key={key1}>
+								<li onClick={this.linkClickHandler} key={key1}>
 									<NavLink exact to={child.link} >{child.name}</NavLink>
 								</li>
 							));
 							children = <ul className="sub-menu">{children}</ul>;
 						}
 						return (
-							<li onClick={this.props.scrollToTop} key={key}>
+							<li onClick={this.linkClickHandler} key={key}>
 								<NavLink exact to={menuItem.link} >{menuItem.name}</NavLink>
 								{children && (children)}
 							</li>
